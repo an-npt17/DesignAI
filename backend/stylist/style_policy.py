@@ -8,7 +8,6 @@ from collections.abc import Mapping, Sequence
 from copy import deepcopy
 from typing import Any
 
-from clients.gemini_client import GeminiClient
 from clients.llm_client import get_llm_client
 
 try:
@@ -733,7 +732,11 @@ def _style_policy_requires_llm() -> bool:
 
 
 def _record_llm_retry(*, stage: str, model_name: str, reason: str) -> None:
+    if getattr(TextLLMConfig, "PROVIDER", "") != "gemini":
+        return
     try:
+        from clients.gemini_client import GeminiClient
+
         GeminiClient.record_retry_event(
             stage=stage,
             model_name=model_name,

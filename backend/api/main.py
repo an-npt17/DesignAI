@@ -11,10 +11,23 @@ from api.routes import account, auth, coordinates, inventory, pipeline
 from config import root_config
 from config.logging_config import setup_logging
 from config.models import OpenAIModelGroupConfig
+from config.openai_config import OpenAIConfig
 from db.demo_data import ensure_demo_inventory_loaded
 from db.runtime_init import ensure_runtime_schema
 
-app = FastAPI(title="TKNT Pipeline API", version="0.2.0")
+app = FastAPI(
+    title="TKNT Pipeline API",
+    version="0.2.0",
+    description=(
+        "AI-powered interior design pipeline.\n\n"
+        "**Route groups:**\n"
+        "- `/auth` — register, login, logout, current user\n"
+        "- `/account` — saved layouts and generated render images per user\n"
+        "- `/inventory` — browse and search the furniture/asset catalog\n"
+        "- `/pipeline` — run the design pipeline and poll results\n"
+        "- `/coordinates` — normalize frontend coordinates before pipeline input\n"
+    ),
+)
 logger = logging.getLogger(__name__)
 
 
@@ -40,7 +53,6 @@ def _log_runtime_profile() -> None:
     gemini_config = root_config.services.gemini
     mistral_config = root_config.services.mistral
     ollama_config = root_config.services.ollama
-    openai_config = root_config.services.openai
     semantic_enabled = root_config.services.semantic_search.enabled
     logged_provider = False
 
@@ -71,9 +83,9 @@ def _log_runtime_profile() -> None:
             gemini_config.models.embedding.name,
         )
         logged_provider = True
-    if not logged_provider and openai_config.azure:
+    if not logged_provider and OpenAIConfig.IS_OPENAI_AZURE:
         primary_model, helper_model, embedding_model = _openai_model_names(
-            openai_config.models
+            OpenAIConfig.MODELS
         )
         logger.info(
             "LLM provider: Azure OpenAI | primary=%s | helper=%s | embedding=%s",
@@ -83,7 +95,7 @@ def _log_runtime_profile() -> None:
         )
     elif not logged_provider:
         primary_model, helper_model, embedding_model = _openai_model_names(
-            openai_config.models
+            OpenAIConfig.MODELS
         )
         logger.info(
             "LLM provider: OpenAI-compatible API | primary=%s | helper=%s | embedding=%s",

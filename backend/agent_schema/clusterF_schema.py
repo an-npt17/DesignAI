@@ -123,7 +123,7 @@ class ClusterRules(BaseModel):
 
 class Cluster(BaseModel):
     cluster_id: str
-    tag: Literal["sleep", "work", "living", "dining", "storage", "misc"]
+    tag: Literal["sleep", "work", "living", "dining", "storage", "kitchen", "misc"]
     members: list[str] = Field(default_factory=list)
     anchors: list[str] = Field(default_factory=list)
     hard_constraints: list[HardConstraint] = Field(default_factory=list)

@@ -172,6 +172,10 @@ class CoordinateNormalizationService:
             room_id=room_id,
         )
         restored_payload = self._translate_json(deepcopy(output_payload), dx=dx, dy=dy)
+        source_scale_to_mm = self._source_scale_from_transform(transform)
+        output_scale = 1.0 / source_scale_to_mm
+        if abs(output_scale - 1.0) > 1e-12:
+            restored_payload = self._scale_json(restored_payload, factor=output_scale)
         restored_payload = self._convert_rotations(restored_payload, rotation_input)
         restored_payload = self._format_frontend_positions(restored_payload)
         return {
@@ -180,9 +184,17 @@ class CoordinateNormalizationService:
                 "coordinate_space": coordinate_space,
                 "room_id": resolved_room_id,
                 "delta": {"x": dx, "y": dy},
+                "source_scale_to_mm": source_scale_to_mm,
+                "output_scale": output_scale,
                 "rotation_format": "quaternion_xyzw",
             },
         }
+
+    def _source_scale_from_transform(self, transform: Mapping[str, Any]) -> float:
+        source_scale_to_mm = self._number(transform.get("source_scale_to_mm"))
+        if source_scale_to_mm is None or source_scale_to_mm <= 0:
+            return 1.0
+        return float(source_scale_to_mm)
 
     def _apartment_bbox(self, payload: Mapping[str, Any]) -> PlanarBBox:
         points = self._collect_bounds_points(payload, skip_keys=_SKIP_BOUNDS_KEYS)
@@ -559,6 +571,7 @@ class CoordinateNormalizationService:
             if len(shape_points) < 3:
                 continue
             room_name = self._string_or_none(room_view.get("name")) or room_id
+            room_description = self._string_or_none(local_payload.get("description"))
             room_type = (
                 self._string_or_none(local_payload.get("roomType"))
                 or self._string_or_none(local_payload.get("room_type"))
@@ -571,6 +584,7 @@ class CoordinateNormalizationService:
             openings = room_openings.get(room_id, {"doors": [], "windows": []})
             user_input: JsonObject = {
                 "description": description
+                or room_description
                 or f"Design {room_name} as a {room_type.replace('_', ' ')}.",
                 "room_type": room_type,
                 "floor_area_m2": floor_area_m2,
@@ -744,6 +758,12 @@ class CoordinateNormalizationService:
                         "y": _clean_float(segment_points[1].y - origin.y),
                     },
                 ]
+                position = self._point_from_mapping(opening.get("position_mm"))
+                if position is not None:
+                    local_opening["position_mm"] = {
+                        "x": _clean_float(position.x - origin.x),
+                        "y": _clean_float(position.y - origin.y),
+                    }
                 out[room_id][bucket].append(local_opening)
         return out
 
@@ -809,7 +829,14 @@ class CoordinateNormalizationService:
                 "id": self._string_or_none(row.get("id")) or f"{kind}_{index}",
                 "kind": kind,
                 "segment_mm": [segment[0].as_dict(), segment[1].as_dict()],
+                "position_mm": position.as_dict(),
             }
+            rotation = self._quaternion_from_value(row.get("rotation"))
+            if rotation is not None:
+                opening["rotation"] = self._quaternion_dict(rotation)
+                opening["rotation_yaw_deg"] = _clean_float(
+                    self._yaw_degrees_from_quaternion(rotation)
+                )
             if kind == "door":
                 opening["swing_radius_mm"] = width
             else:
@@ -1420,6 +1447,14 @@ class CoordinateNormalizationService:
             0.0,
             self._round_float(math.cos(half_angle)),
         ]
+
+    def _yaw_degrees_from_quaternion(self, value: list[float]) -> float:
+        x, y, z, w = value
+        radians = math.atan2(
+            2.0 * (w * y + x * z),
+            1.0 - 2.0 * (x * x + y * y),
+        )
+        return math.degrees(radians) % 360.0
 
     def _point_from_list(
         self,

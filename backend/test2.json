@@ -1,0 +1,145 @@
+{
+    "room": {
+        "key": "simple-bedroom-01-rest-study",
+        "name": "Phòng ngủ nghỉ ngơi và học tập",
+        "polygons": [
+            [
+                0,
+                0
+            ],
+            [
+                4,
+                0
+            ],
+            [
+                4,
+                4.5
+            ],
+            [
+                0,
+                4.5
+            ]
+        ],
+        "materialId": "wood_light",
+        "description": "Phòng ngủ 18 mét vuông, kích thước 4.0m x 4.5m, phong cách hiện đại và công năng. Không gian cần yên tĩnh, thực tế và dễ sử dụng cho ngủ nghỉ kết hợp học tập nhẹ. Bố trí 1 giường làm điểm nhấn chính, 1 tủ quần áo, 1 tủ đầu giường, 1 bàn học nhỏ với ghế, 1 đèn trần. Giữ khoảng trống thoáng quanh giường và bàn học để thuận tiện sử dụng hằng ngày. Cửa vào nằm trên tường dưới gần góc trái. Cửa sổ nằm trên tường trên, ưu tiên đặt bàn học gần cửa sổ nếu phù hợp.",
+        "materialLabel": "Gỗ sáng"
+    },
+    "walls": [
+        {
+            "id": "bedroom-wall-bottom",
+            "color": "#cccccc",
+            "height": 2.6,
+            "endPoint": [
+                4,
+                0
+            ],
+            "thickness": 0.12,
+            "startPoint": [
+                0,
+                0
+            ]
+        },
+        {
+            "id": "bedroom-wall-right",
+            "color": "#cccccc",
+            "height": 2.6,
+            "endPoint": [
+                4,
+                4.5
+            ],
+            "thickness": 0.12,
+            "startPoint": [
+                4,
+                0
+            ]
+        },
+        {
+            "id": "bedroom-wall-top",
+            "color": "#cccccc",
+            "height": 2.6,
+            "endPoint": [
+                0,
+                4.5
+            ],
+            "thickness": 0.12,
+            "startPoint": [
+                4,
+                4.5
+            ]
+        },
+        {
+            "id": "bedroom-wall-left",
+            "color": "#cccccc",
+            "height": 2.6,
+            "endPoint": [
+                0,
+                0
+            ],
+            "thickness": 0.12,
+            "startPoint": [
+                0,
+                4.5
+            ]
+        }
+    ],
+    "openings": [
+        {
+            "id": "bedroom-door-01",
+            "name": "Cửa phòng ngủ",
+            "size": [
+                0.9,
+                2.1,
+                0.1
+            ],
+            "type": "model",
+            "color": "#4a90e2",
+            "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/door.glb",
+            "position": [
+                0.75,
+                1.05,
+                -0.02
+            ],
+            "rotation": [
+                0,
+                1,
+                0,
+                6.123233995736766e-17
+            ],
+            "objectRole": "door",
+            "catalogItemId": "f815cab8-9cc8-45cb-b4b6-deba805b8622",
+            "placementType": "wall",
+            "snappedToWall": "bedroom-wall-bottom"
+        },
+        {
+            "id": "bedroom-window-01",
+            "name": "Cửa sổ phòng ngủ",
+            "type": "model",
+            "position": [
+                1.5,
+                1.55,
+                4.5
+            ],
+            "rotation": [
+                0,
+                0,
+                0,
+                1
+            ],
+            "color": "#4a90e2",
+            "size": [
+                1.2,
+                1.2,
+                0.05
+            ],
+            "modelUrl": "https://storage.mazig.io/catalog/models/flora-master/SlideWindowLeaf05_018.glb",
+            "placementType": "wall",
+            "snappedToWall": "bedroom-wall-top",
+            "objectRole": "window",
+            "catalogItemId": "4821ab19-b99f-4434-9db3-6ff0f15367f7",
+            "selectedColorHex": "#FFFFFF",
+            "selectedColorName": "Trắng",
+            "selectedMaterialName": "Gỗ",
+            "variantPriceCents": 1000000
+        }
+    ]
+}

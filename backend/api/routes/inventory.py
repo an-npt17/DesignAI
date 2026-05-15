@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-import json
+import logging
 import mimetypes
 from pathlib import Path
 
@@ -8,28 +8,34 @@ from fastapi import APIRouter, Depends, HTTPException, Query
 from fastapi.responses import FileResponse
 from pydantic import BaseModel, Field
 
+from adapters.catalog_api import CatalogApiError, load_catalog_inventory_payloads
 from api.deps import get_optional_current_user
 from config.demo_inventory import (
     is_demo_inventory_tenant,
     is_enabled_demo_inventory_tenant,
 )
-from db.models import AssetFile, UserAccount
+from db.models import UserAccount
 from db.pg_assets import PostgresAssetRepository
 from services.auth_service import get_shared_inventory_tenant_id
 from services.user_content_service import UserContentService
 
 router = APIRouter(prefix="/inventory", tags=["inventory"])
+logger = logging.getLogger(__name__)
 
 
 class InventoryItem(BaseModel):
-    id: str
-    name: str
-    type: str
-    style_tags: list[str] = Field(default_factory=list)
-    material: str | None = None
-    brand: str | None = None
-    dimensions: dict[str, float | None] | None = None
-    attributes: dict[str, object] = Field(default_factory=dict)
+    id: str = Field(..., description="Unique item identifier.")
+    inventory_id: str | None = Field(default=None, description="Internal inventory record ID.")
+    catalog_id: str | None = Field(default=None, description="ID in the external catalog system.")
+    name: str = Field(..., description="Display name of the item.")
+    inventory_name: str | None = Field(default=None, description="Name as it appears in the inventory source.")
+    object_type: str | None = Field(default=None, description="Semantic object type (e.g. 'sofa', 'table').")
+    type: str = Field(..., description="Top-level category used for filtering (e.g. 'seating', 'storage').")
+    style_tags: list[str] = Field(default_factory=list, description="Style keywords such as 'modern', 'scandinavian', 'minimalist'.")
+    material: str | None = Field(default=None, description="Primary material (e.g. 'wood', 'fabric', 'metal').")
+    brand: str | None = Field(default=None, description="Manufacturer or brand name.")
+    dimensions: dict[str, float | None] | None = Field(default=None, description="Physical dimensions in metres: keys are 'width', 'depth', 'height'.")
+    attributes: dict[str, object] = Field(default_factory=dict, description="Additional item-specific attributes from the catalog.")
 
 
 class InventoryListResponse(BaseModel):
@@ -56,94 +62,77 @@ def get_asset_repository() -> PostgresAssetRepository:
     return PostgresAssetRepository()
 
 
-@router.get("/items", response_model=InventoryListResponse)
+@router.get("/items", response_model=InventoryListResponse, summary="List inventory items")
 def list_items(
-    tenant_id: str | None = Query(default=None),
-    types: list[str] | None = Query(default=None),
-    style_tags: list[str] | None = Query(default=None),
-    current_user: UserAccount | None = Depends(get_optional_current_user),
-    service: UserContentService = Depends(get_user_content_service),
+    tenant_id: str | None = Query(default=None, description="Tenant whose catalog to query. Defaults to the shared demo tenant."),
+    types: list[str] | None = Query(default=None, description="Filter by one or more item types (e.g. `types=seating&types=storage`)."),
+    style_tags: list[str] | None = Query(default=None, description="Filter to items that have at least one of the given style tags."),
 ) -> InventoryListResponse:
+    """
+    Return all inventory items for the given tenant, with optional filters.
+
+    Filters are applied server-side after loading from the catalog. If both `types` and
+    `style_tags` are provided, both conditions must be satisfied.
+    """
     shared_tenant = tenant_id or get_shared_inventory_tenant_id()
     items = _load_inventory_items(
         shared_tenant_id=shared_tenant,
-        current_user=current_user,
         types=types,
         style_tags=style_tags,
-        service=service,
     )
-    resolved_tenant_id = (
-        str(current_user.tenant_id) if current_user is not None else shared_tenant
-    )
-    return InventoryListResponse(tenant_id=resolved_tenant_id, items=items)
+    return InventoryListResponse(tenant_id=shared_tenant, items=items)
 
 
-@router.get("/types", response_model=InventoryTypesResponse)
+@router.get("/types", response_model=InventoryTypesResponse, summary="List all available item types")
 def list_types(
-    tenant_id: str | None = Query(default=None),
-    current_user: UserAccount | None = Depends(get_optional_current_user),
-    service: UserContentService = Depends(get_user_content_service),
+    tenant_id: str | None = Query(default=None, description="Tenant whose catalog to query. Defaults to the shared demo tenant."),
 ) -> InventoryTypesResponse:
+    """Return a sorted list of unique `type` values present in the inventory. Useful for populating filter dropdowns."""
     shared_tenant = tenant_id or get_shared_inventory_tenant_id()
     items = _load_inventory_items(
         shared_tenant_id=shared_tenant,
-        current_user=current_user,
-        service=service,
     )
     types_set = {item.type for item in items}
-    resolved_tenant_id = (
-        str(current_user.tenant_id) if current_user is not None else shared_tenant
-    )
-    return InventoryTypesResponse(tenant_id=resolved_tenant_id, types=sorted(types_set))
+    return InventoryTypesResponse(tenant_id=shared_tenant, types=sorted(types_set))
 
 
-@router.get("/search", response_model=InventorySearchResponse)
+@router.get("/search", response_model=InventorySearchResponse, summary="Search inventory by keyword")
 def search_items(
-    q: str = Query(..., min_length=1),
-    tenant_id: str | None = Query(default=None),
-    limit: int = Query(default=20, ge=1, le=200),
-    current_user: UserAccount | None = Depends(get_optional_current_user),
-    service: UserContentService = Depends(get_user_content_service),
+    q: str = Query(..., min_length=1, description="Search query string. Matched against item name and attributes."),
+    tenant_id: str | None = Query(default=None, description="Tenant whose catalog to query. Defaults to the shared demo tenant."),
+    limit: int = Query(default=20, ge=1, le=200, description="Maximum number of results to return (1–200)."),
 ) -> InventorySearchResponse:
+    """Search the inventory by keyword. Returns up to `limit` matching items."""
     shared_tenant = tenant_id or get_shared_inventory_tenant_id()
     items = _load_inventory_items(
         shared_tenant_id=shared_tenant,
-        current_user=current_user,
-        service=service,
-    )
-    query_text = q.lower()
-    results: list[InventoryItem] = []
-    for item in items:
-        haystack = " ".join(
-            [
-                item.name,
-                item.type,
-                item.brand or "",
-                item.material or "",
-                " ".join(item.style_tags or []),
-            ]
-        ).lower()
-        if query_text in haystack:
-            results.append(item)
-        if len(results) >= limit:
-            break
-    resolved_tenant_id = (
-        str(current_user.tenant_id) if current_user is not None else shared_tenant
+        search=q,
+        limit=limit,
     )
     return InventorySearchResponse(
-        tenant_id=resolved_tenant_id,
+        tenant_id=shared_tenant,
         query=q,
-        items=results,
+        items=items,
     )
 
 
-@router.get("/files/{asset_file_id}")
+@router.get("/files/{asset_file_id}", summary="Download an asset file (3D model, texture, image)")
 def get_inventory_file(
     asset_file_id: str,
     current_user: UserAccount | None = Depends(get_optional_current_user),
     service: UserContentService = Depends(get_user_content_service),
     asset_repository: PostgresAssetRepository = Depends(get_asset_repository),
 ) -> FileResponse:
+    """
+    Stream an asset file by its `asset_file_id`.
+
+    Supported file types include GLB (3D models), PNG/JPEG (textures), and others.
+    `.glb` files are served with `Content-Type: model/gltf-binary`.
+
+    - Raises `403` if the authenticated user does not own the asset.
+    - Raises `404` if the file record or the file on disk cannot be found.
+    - Public demo inventory files can be accessed without authentication.
+    """
     asset_file = asset_repository.get_asset_file(asset_file_id)
     if asset_file is None:
         raise HTTPException(status_code=404, detail="Asset file not found.")
@@ -174,95 +163,39 @@ def get_inventory_file(
 def _load_inventory_items(
     *,
     shared_tenant_id: str,
-    current_user: UserAccount | None,
     types: list[str] | None = None,
     style_tags: list[str] | None = None,
-    service: UserContentService,
+    search: str | None = None,
+    limit: int | None = None,
 ) -> list[InventoryItem]:
     if is_demo_inventory_tenant(
         shared_tenant_id
     ) and not is_enabled_demo_inventory_tenant(shared_tenant_id):
         return []
     try:
-        persisted_assets = service.list_inventory_assets_for_user(
-            user=current_user,
-            shared_tenant_id=shared_tenant_id,
-            style_tags=style_tags,
-        )
-        type_set = {
-            value for value in (types or []) if isinstance(value, str) and value
-        }
-        results: list[InventoryItem] = []
-        for persisted in persisted_assets:
-            payload = service.serialize_inventory_asset(
-                persisted=persisted,
-                file_url_builder=_build_file_url,
-            )
-            category = str(payload.get("type") or payload.get("name") or "")
-            if type_set and category not in type_set:
-                continue
-            results.append(InventoryItem(**payload))
-        return results
-    except Exception:
-        return _load_inventory_items_from_json(
-            shared_tenant_id=shared_tenant_id,
+        payloads = load_catalog_inventory_payloads(
             types=types,
-            style_tags=style_tags,
+            search=search,
+            limit=limit,
         )
+    except CatalogApiError as exc:
+        logger.exception("Catalog inventory API request failed.")
+        raise HTTPException(
+            status_code=502,
+            detail="Catalog inventory API is unavailable.",
+        ) from exc
 
-
-def _load_inventory_items_from_json(
-    *,
-    shared_tenant_id: str,
-    types: list[str] | None = None,
-    style_tags: list[str] | None = None,
-) -> list[InventoryItem]:
-    base = Path(__file__).resolve().parents[2]
-    path = base / "synthetic_data" / "inventory.json"
-    if not path.exists():
-        return []
-    try:
-        raw = json.loads(path.read_text(encoding="utf-8"))
-    except Exception:
-        return []
-
-    type_set = {value for value in (types or []) if isinstance(value, str) and value}
     style_set = {
-        value for value in (style_tags or []) if isinstance(value, str) and value
+        value.strip()
+        for value in (style_tags or [])
+        if isinstance(value, str) and value.strip()
     }
     results: list[InventoryItem] = []
-    for item in raw:
-        if not isinstance(item, dict):
+    for payload in payloads:
+        item = InventoryItem(**payload)
+        if style_set and style_set.isdisjoint(set(item.style_tags)):
             continue
-        if item.get("tenant_id") not in (shared_tenant_id, None, "demo_tenant"):
-            continue
-        category = str(item.get("type") or item.get("name") or "")
-        if type_set and category not in type_set:
-            continue
-        item_styles = set(item.get("style_tags") or [])
-        if style_set and not (style_set & item_styles):
-            continue
-        dimensions = {
-            "length_mm": item.get("length_mm"),
-            "width_mm": item.get("width_mm"),
-            "height_mm": item.get("height_mm"),
-        }
-        attributes = dict(item.get("attributes") or {})
-        attributes["ownership_scope"] = "shared"
-        results.append(
-            InventoryItem(
-                id=str(item.get("id") or ""),
-                name=str(item.get("name") or category),
-                type=category,
-                style_tags=list(item.get("style_tags") or []),
-                material=item.get("material"),
-                brand=item.get("brand"),
-                dimensions=dimensions,
-                attributes=attributes,
-            )
-        )
+        results.append(item)
+        if isinstance(limit, int) and limit > 0 and len(results) >= limit:
+            break
     return results
-
-
-def _build_file_url(asset_file: AssetFile) -> str:
-    return f"/inventory/files/{asset_file.id}"

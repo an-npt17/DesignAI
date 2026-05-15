@@ -14,7 +14,7 @@
 #   "clusters":[
 #     {
 #       "cluster_id":"string",
-#       "tag":"sleep|work|living|dining|storage|misc",
+#       "tag":"sleep|work|living|dining|storage|kitchen|misc",
 
 #       "members":["object_id", "..."],
 #       "anchors":["object_id", "..."],
@@ -180,7 +180,7 @@ OUTPUT JSON (STRICT):
   "clusters":[
     {
       "cluster_id":"string",
-      "tag":"sleep|work|living|dining|storage|misc",
+      "tag":"sleep|work|living|dining|storage|kitchen|misc",
       "members":["object_id", "..."],
       "anchors":["object_id", "..."],
       "cluster_rules":{

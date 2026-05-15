@@ -9,7 +9,6 @@ from typing import Any
 
 from agent.tool_call_parser import extract_tool_calls as parse_tool_calls
 from agent_schema.stylist_schema import StylistOutput
-from clients.gemini_client import GeminiClient
 from clients.llm_client import get_llm_client
 from prompt.stylist import STYLIST_PROMPT
 from prompt.system import SYSTEM_PROMPT
@@ -605,7 +604,11 @@ def _configured_agent_model_name(key: str) -> str | None:
 
 
 def _record_llm_retry(*, stage: str, model_name: str | None, reason: str) -> None:
+    if TextLLMConfig is None or getattr(TextLLMConfig, "PROVIDER", "") != "gemini":
+        return
     try:
+        from clients.gemini_client import GeminiClient
+
         GeminiClient.record_retry_event(
             stage=stage,
             model_name=model_name,

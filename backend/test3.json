@@ -1,0 +1,145 @@
+{
+  "room": {
+    "key": "bedroom-02-square-two-nightstands",
+    "name": "Phòng ngủ hiện đại công năng",
+    "polygons": [
+      [
+        0,
+        0
+      ],
+      [
+        4,
+        0
+      ],
+      [
+        4,
+        4.5
+      ],
+      [
+        0,
+        4.5
+      ]
+    ],
+    "materialId": "wood_light",
+    "description": "Phòng ngủ 18 mét vuông, kích thước 4.0m x 4.5m, phong cách hiện đại và công năng. Bố trí 1 giường, 2 tủ đầu giường nếu đủ diện tích, 1 tủ quần áo trên tường đặc, rèm cửa, đèn trần và lối lưu thông thoải mái quanh giường. Cửa vào nằm trên tường dưới lệch về bên phải, trải từ 2.5m đến 3.4m. Cửa sổ nằm trên tường trên gần khu vực trái-giữa, trải từ 0.9m đến 2.5m. Không đặt giường sát trực tiếp cạnh cửa vào.",
+    "materialLabel": "Gỗ sáng"
+  },
+  "walls": [
+    {
+      "id": "bedroom-wall-bottom",
+      "color": "#cccccc",
+      "height": 2.7,
+      "endPoint": [
+        4,
+        0
+      ],
+      "thickness": 0.12,
+      "startPoint": [
+        0,
+        0
+      ]
+    },
+    {
+      "id": "bedroom-wall-right",
+      "color": "#cccccc",
+      "height": 2.7,
+      "endPoint": [
+        4,
+        4.5
+      ],
+      "thickness": 0.12,
+      "startPoint": [
+        4,
+        0
+      ]
+    },
+    {
+      "id": "bedroom-wall-top",
+      "color": "#cccccc",
+      "height": 2.7,
+      "endPoint": [
+        0,
+        4.5
+      ],
+      "thickness": 0.12,
+      "startPoint": [
+        4,
+        4.5
+      ]
+    },
+    {
+      "id": "bedroom-wall-left",
+      "color": "#cccccc",
+      "height": 2.7,
+      "endPoint": [
+        0,
+        0
+      ],
+      "thickness": 0.12,
+      "startPoint": [
+        0,
+        4.5
+      ]
+    }
+  ],
+  "openings": [
+    {
+      "id": "bedroom-door-01",
+      "name": "Cửa phòng ngủ",
+      "size": [
+        0.9,
+        2.1,
+        0.1
+      ],
+      "type": "model",
+      "color": "#4a90e2",
+      "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/door.glb",
+      "position": [
+        2.95,
+        1.05,
+        -0.02
+      ],
+      "rotation": [
+        0,
+        1,
+        0,
+        6.123233995736766e-17
+      ],
+      "objectRole": "door",
+      "catalogItemId": "f815cab8-9cc8-45cb-b4b6-deba805b8622",
+      "placementType": "wall",
+      "snappedToWall": "bedroom-wall-bottom"
+    },
+    {
+      "id": "bedroom-window-01",
+      "name": "Cửa sổ phòng ngủ",
+      "type": "model",
+      "position": [
+        1.7,
+        1.55,
+        4.52
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "color": "#4a90e2",
+      "size": [
+        1.6,
+        1.2,
+        0.05
+      ],
+      "modelUrl": "https://storage.mazig.io/catalog/models/flora-master/SlideWindowLeaf05_018.glb",
+      "placementType": "wall",
+      "snappedToWall": "bedroom-wall-top",
+      "objectRole": "window",
+      "catalogItemId": "4821ab19-b99f-4434-9db3-6ff0f15367f7",
+      "selectedColorHex": "#FFFFFF",
+      "selectedColorName": "Trắng",
+      "selectedMaterialName": "Gỗ",
+      "variantPriceCents": 1000000
+    }
+  ]
+}

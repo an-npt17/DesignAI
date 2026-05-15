@@ -1,0 +1,1008 @@
+{
+    "objects": [
+        {
+            "name": "Giường ngủ",
+            "size": [
+                2.2735625,
+                0.9901748,
+                2.0629062
+            ],
+            "type": "model",
+            "color": "#795548",
+            "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/bed.glb",
+            "position": {
+                "x": 3.1315,
+                "y": 0.4950874,
+                "z": 2.437
+            },
+            "rotation": {
+                "x": 0,
+                "y": -1,
+                "z": 0,
+                "w": 0
+            },
+            "objectRole": null,
+            "catalogItemId": "9a92b108-99d8-4efa-874e-d950e77bfeca"
+        },
+        {
+            "name": "Tủ quần áo gỗ",
+            "size": [
+                0.600063,
+                2.399568,
+                1.6
+            ],
+            "type": "model",
+            "color": "#000000",
+            "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/wardrobe.glb",
+            "position": {
+                "x": 1.65,
+                "y": 1.199784,
+                "z": 2.8
+            },
+            "rotation": {
+                "x": 0,
+                "y": 1,
+                "z": 0,
+                "w": 0
+            },
+            "objectRole": null,
+            "catalogItemId": "d597f466-6922-4054-992e-96c32a6a410e"
+        },
+        {
+            "name": "Tủ cạnh giường",
+            "size": [
+                0.45,
+                0.496503,
+                0.45
+            ],
+            "type": "model",
+            "color": "#3679b3",
+            "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/sidebed_table.glb",
+            "position": {
+                "x": 1.775,
+                "y": 0.2482515,
+                "z": 0.375
+            },
+            "rotation": {
+                "x": 0,
+                "y": 0.707106781187,
+                "z": 0,
+                "w": -0.707106781187
+            },
+            "objectRole": null,
+            "catalogItemId": "088d63ee-5308-4431-927d-426ee45b2183"
+        },
+        {
+            "name": "Ghế tựa Rustic 2",
+            "size": [
+                0.511594,
+                0.849661,
+                0.495875
+            ],
+            "type": "model",
+            "color": "#000000",
+            "modelUrl": "https://storage.mazig.io/catalog/models/rustic-khach/models/rustic-khach/Group2132577564.glb",
+            "position": {
+                "x": 1.448,
+                "y": 0.4248305,
+                "z": 1.306
+            },
+            "rotation": {
+                "x": 0,
+                "y": 0.707106781187,
+                "z": 0,
+                "w": -0.707106781187
+            },
+            "objectRole": null,
+            "catalogItemId": "5b3b4c7a-38ed-4bc9-88b3-92855c4b5686"
+        }
+    ],
+    "openings": [
+        {
+            "id": "bedroom-door-01",
+            "name": "Cửa phòng ngủ",
+            "size": [
+                0.9,
+                2.1,
+                0.1
+            ],
+            "type": "model",
+            "color": "#4a90e2",
+            "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/door.glb",
+            "position": [
+                0.95,
+                1.05,
+                -0.02
+            ],
+            "rotation": [
+                0,
+                1,
+                0,
+                6.123233995736766e-17
+            ],
+            "objectRole": "door",
+            "catalogItemId": "f815cab8-9cc8-45cb-b4b6-deba805b8622",
+            "placementType": "wall",
+            "snappedToWall": "bedroom-wall-bottom"
+        },
+        {
+            "id": "bedroom-window-01",
+            "name": "Cửa sổ phòng ngủ",
+            "type": "model",
+            "position": [
+                2.8,
+                1.55,
+                3.62
+            ],
+            "rotation": [
+                0,
+                0,
+                0,
+                1
+            ],
+            "color": "#4a90e2",
+            "size": [
+                1.4,
+                1.2,
+                0.05
+            ],
+            "modelUrl": "https://storage.mazig.io/catalog/models/flora-master/SlideWindowLeaf05_018.glb",
+            "placementType": "wall",
+            "snappedToWall": "bedroom-wall-top",
+            "objectRole": "window",
+            "catalogItemId": "4821ab19-b99f-4434-9db3-6ff0f15367f7",
+            "selectedColorHex": "#FFFFFF",
+            "selectedColorName": "Trắng",
+            "selectedMaterialName": "Gỗ",
+            "variantPriceCents": 1000000
+        }
+    ],
+    "selectedOptionId": "variant_1",
+    "options": [
+        {
+            "optionId": "variant_1",
+            "label": "Option 1",
+            "layoutScore": -26038,
+            "hardValid": false,
+            "complete": true,
+            "coverageRatio": 1,
+            "objects": [
+                {
+                    "name": "Giường ngủ",
+                    "size": [
+                        2.2735625,
+                        0.9901748,
+                        2.0629062
+                    ],
+                    "type": "model",
+                    "color": "#795548",
+                    "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/bed.glb",
+                    "position": {
+                        "x": 3.1315,
+                        "y": 0.4950874,
+                        "z": 2.437
+                    },
+                    "rotation": {
+                        "x": 0,
+                        "y": -1,
+                        "z": 0,
+                        "w": 0
+                    },
+                    "objectRole": null,
+                    "catalogItemId": "9a92b108-99d8-4efa-874e-d950e77bfeca"
+                },
+                {
+                    "name": "Tủ quần áo gỗ",
+                    "size": [
+                        0.600063,
+                        2.399568,
+                        1.6
+                    ],
+                    "type": "model",
+                    "color": "#000000",
+                    "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/wardrobe.glb",
+                    "position": {
+                        "x": 1.65,
+                        "y": 1.199784,
+                        "z": 2.8
+                    },
+                    "rotation": {
+                        "x": 0,
+                        "y": 1,
+                        "z": 0,
+                        "w": 0
+                    },
+                    "objectRole": null,
+                    "catalogItemId": "d597f466-6922-4054-992e-96c32a6a410e"
+                },
+                {
+                    "name": "Tủ cạnh giường",
+                    "size": [
+                        0.45,
+                        0.496503,
+                        0.45
+                    ],
+                    "type": "model",
+                    "color": "#3679b3",
+                    "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/sidebed_table.glb",
+                    "position": {
+                        "x": 1.775,
+                        "y": 0.2482515,
+                        "z": 0.375
+                    },
+                    "rotation": {
+                        "x": 0,
+                        "y": 0.707106781187,
+                        "z": 0,
+                        "w": -0.707106781187
+                    },
+                    "objectRole": null,
+                    "catalogItemId": "088d63ee-5308-4431-927d-426ee45b2183"
+                },
+                {
+                    "name": "Ghế tựa Rustic 2",
+                    "size": [
+                        0.511594,
+                        0.849661,
+                        0.495875
+                    ],
+                    "type": "model",
+                    "color": "#000000",
+                    "modelUrl": "https://storage.mazig.io/catalog/models/rustic-khach/models/rustic-khach/Group2132577564.glb",
+                    "position": {
+                        "x": 1.448,
+                        "y": 0.4248305,
+                        "z": 1.306
+                    },
+                    "rotation": {
+                        "x": 0,
+                        "y": 0.707106781187,
+                        "z": 0,
+                        "w": -0.707106781187
+                    },
+                    "objectRole": null,
+                    "catalogItemId": "5b3b4c7a-38ed-4bc9-88b3-92855c4b5686"
+                }
+            ],
+            "openings": [
+                {
+                    "id": "bedroom-door-01",
+                    "name": "Cửa phòng ngủ",
+                    "size": [
+                        0.9,
+                        2.1,
+                        0.1
+                    ],
+                    "type": "model",
+                    "color": "#4a90e2",
+                    "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/door.glb",
+                    "position": [
+                        0.95,
+                        1.05,
+                        -0.02
+                    ],
+                    "rotation": [
+                        0,
+                        1,
+                        0,
+                        6.123233995736766e-17
+                    ],
+                    "objectRole": "door",
+                    "catalogItemId": "f815cab8-9cc8-45cb-b4b6-deba805b8622",
+                    "placementType": "wall",
+                    "snappedToWall": "bedroom-wall-bottom"
+                },
+                {
+                    "id": "bedroom-window-01",
+                    "name": "Cửa sổ phòng ngủ",
+                    "type": "model",
+                    "position": [
+                        2.8,
+                        1.55,
+                        3.62
+                    ],
+                    "rotation": [
+                        0,
+                        0,
+                        0,
+                        1
+                    ],
+                    "color": "#4a90e2",
+                    "size": [
+                        1.4,
+                        1.2,
+                        0.05
+                    ],
+                    "modelUrl": "https://storage.mazig.io/catalog/models/flora-master/SlideWindowLeaf05_018.glb",
+                    "placementType": "wall",
+                    "snappedToWall": "bedroom-wall-top",
+                    "objectRole": "window",
+                    "catalogItemId": "4821ab19-b99f-4434-9db3-6ff0f15367f7",
+                    "selectedColorHex": "#FFFFFF",
+                    "selectedColorName": "Trắng",
+                    "selectedMaterialName": "Gỗ",
+                    "variantPriceCents": 1000000
+                }
+            ]
+        },
+        {
+            "optionId": "variant_2",
+            "label": "Option 2",
+            "layoutScore": -27709,
+            "hardValid": false,
+            "complete": true,
+            "coverageRatio": 1,
+            "objects": [
+                {
+                    "name": "Giường ngủ",
+                    "size": [
+                        2.2735625,
+                        0.9901748,
+                        2.0629062
+                    ],
+                    "type": "model",
+                    "color": "#795548",
+                    "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/bed.glb",
+                    "position": {
+                        "x": 3.1315,
+                        "y": 0.4950874,
+                        "z": 2.037
+                    },
+                    "rotation": {
+                        "x": 0,
+                        "y": -1,
+                        "z": 0,
+                        "w": 0
+                    },
+                    "objectRole": null,
+                    "catalogItemId": "9a92b108-99d8-4efa-874e-d950e77bfeca"
+                },
+                {
+                    "name": "Tủ quần áo gỗ",
+                    "size": [
+                        0.600063,
+                        2.399568,
+                        1.6
+                    ],
+                    "type": "model",
+                    "color": "#000000",
+                    "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/wardrobe.glb",
+                    "position": {
+                        "x": 1.65,
+                        "y": 1.199784,
+                        "z": 2.8
+                    },
+                    "rotation": {
+                        "x": 0,
+                        "y": 1,
+                        "z": 0,
+                        "w": 0
+                    },
+                    "objectRole": null,
+                    "catalogItemId": "d597f466-6922-4054-992e-96c32a6a410e"
+                },
+                {
+                    "name": "Tủ cạnh giường",
+                    "size": [
+                        0.45,
+                        0.496503,
+                        0.45
+                    ],
+                    "type": "model",
+                    "color": "#3679b3",
+                    "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/sidebed_table.glb",
+                    "position": {
+                        "x": 1.775,
+                        "y": 0.2482515,
+                        "z": 0.775
+                    },
+                    "rotation": {
+                        "x": 0,
+                        "y": 0.707106781187,
+                        "z": 0,
+                        "w": -0.707106781187
+                    },
+                    "objectRole": null,
+                    "catalogItemId": "088d63ee-5308-4431-927d-426ee45b2183"
+                },
+                {
+                    "name": "Ghế tựa Rustic 2",
+                    "size": [
+                        0.511594,
+                        0.849661,
+                        0.495875
+                    ],
+                    "type": "model",
+                    "color": "#000000",
+                    "modelUrl": "https://storage.mazig.io/catalog/models/rustic-khach/models/rustic-khach/Group2132577564.glb",
+                    "position": {
+                        "x": 1.448,
+                        "y": 0.4248305,
+                        "z": 1.306
+                    },
+                    "rotation": {
+                        "x": 0,
+                        "y": -0.707106781187,
+                        "z": 0,
+                        "w": -0.707106781187
+                    },
+                    "objectRole": null,
+                    "catalogItemId": "5b3b4c7a-38ed-4bc9-88b3-92855c4b5686"
+                }
+            ],
+            "openings": [
+                {
+                    "id": "bedroom-door-01",
+                    "name": "Cửa phòng ngủ",
+                    "size": [
+                        0.9,
+                        2.1,
+                        0.1
+                    ],
+                    "type": "model",
+                    "color": "#4a90e2",
+                    "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/door.glb",
+                    "position": [
+                        0.95,
+                        1.05,
+                        -0.02
+                    ],
+                    "rotation": [
+                        0,
+                        1,
+                        0,
+                        6.123233995736766e-17
+                    ],
+                    "objectRole": "door",
+                    "catalogItemId": "f815cab8-9cc8-45cb-b4b6-deba805b8622",
+                    "placementType": "wall",
+                    "snappedToWall": "bedroom-wall-bottom"
+                },
+                {
+                    "id": "bedroom-window-01",
+                    "name": "Cửa sổ phòng ngủ",
+                    "type": "model",
+                    "position": [
+                        2.8,
+                        1.55,
+                        3.62
+                    ],
+                    "rotation": [
+                        0,
+                        0,
+                        0,
+                        1
+                    ],
+                    "color": "#4a90e2",
+                    "size": [
+                        1.4,
+                        1.2,
+                        0.05
+                    ],
+                    "modelUrl": "https://storage.mazig.io/catalog/models/flora-master/SlideWindowLeaf05_018.glb",
+                    "placementType": "wall",
+                    "snappedToWall": "bedroom-wall-top",
+                    "objectRole": "window",
+                    "catalogItemId": "4821ab19-b99f-4434-9db3-6ff0f15367f7",
+                    "selectedColorHex": "#FFFFFF",
+                    "selectedColorName": "Trắng",
+                    "selectedMaterialName": "Gỗ",
+                    "variantPriceCents": 1000000
+                }
+            ]
+        },
+        {
+            "optionId": "variant_3",
+            "label": "Option 3",
+            "layoutScore": -28036,
+            "hardValid": false,
+            "complete": true,
+            "coverageRatio": 1,
+            "objects": [
+                {
+                    "name": "Giường ngủ",
+                    "size": [
+                        2.2735625,
+                        0.9901748,
+                        2.0629062
+                    ],
+                    "type": "model",
+                    "color": "#795548",
+                    "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/bed.glb",
+                    "position": {
+                        "x": 3.1315,
+                        "y": 0.4950874,
+                        "z": 1.787
+                    },
+                    "rotation": {
+                        "x": 0,
+                        "y": -1,
+                        "z": 0,
+                        "w": 0
+                    },
+                    "objectRole": null,
+                    "catalogItemId": "9a92b108-99d8-4efa-874e-d950e77bfeca"
+                },
+                {
+                    "name": "Tủ quần áo gỗ",
+                    "size": [
+                        0.600063,
+                        2.399568,
+                        1.6
+                    ],
+                    "type": "model",
+                    "color": "#000000",
+                    "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/wardrobe.glb",
+                    "position": {
+                        "x": 1.65,
+                        "y": 1.199784,
+                        "z": 2.8
+                    },
+                    "rotation": {
+                        "x": 0,
+                        "y": 1,
+                        "z": 0,
+                        "w": 0
+                    },
+                    "objectRole": null,
+                    "catalogItemId": "d597f466-6922-4054-992e-96c32a6a410e"
+                },
+                {
+                    "name": "Tủ cạnh giường",
+                    "size": [
+                        0.45,
+                        0.496503,
+                        0.45
+                    ],
+                    "type": "model",
+                    "color": "#3679b3",
+                    "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/sidebed_table.glb",
+                    "position": {
+                        "x": 1.775,
+                        "y": 0.2482515,
+                        "z": 0.525
+                    },
+                    "rotation": {
+                        "x": 0,
+                        "y": 0.707106781187,
+                        "z": 0,
+                        "w": -0.707106781187
+                    },
+                    "objectRole": null,
+                    "catalogItemId": "088d63ee-5308-4431-927d-426ee45b2183"
+                },
+                {
+                    "name": "Ghế tựa Rustic 2",
+                    "size": [
+                        0.511594,
+                        0.849661,
+                        0.495875
+                    ],
+                    "type": "model",
+                    "color": "#000000",
+                    "modelUrl": "https://storage.mazig.io/catalog/models/rustic-khach/models/rustic-khach/Group2132577564.glb",
+                    "position": {
+                        "x": 1.648,
+                        "y": 0.4248305,
+                        "z": 1.306
+                    },
+                    "rotation": {
+                        "x": 0,
+                        "y": -0.707106781187,
+                        "z": 0,
+                        "w": -0.707106781187
+                    },
+                    "objectRole": null,
+                    "catalogItemId": "5b3b4c7a-38ed-4bc9-88b3-92855c4b5686"
+                }
+            ],
+            "openings": [
+                {
+                    "id": "bedroom-door-01",
+                    "name": "Cửa phòng ngủ",
+                    "size": [
+                        0.9,
+                        2.1,
+                        0.1
+                    ],
+                    "type": "model",
+                    "color": "#4a90e2",
+                    "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/door.glb",
+                    "position": [
+                        0.95,
+                        1.05,
+                        -0.02
+                    ],
+                    "rotation": [
+                        0,
+                        1,
+                        0,
+                        6.123233995736766e-17
+                    ],
+                    "objectRole": "door",
+                    "catalogItemId": "f815cab8-9cc8-45cb-b4b6-deba805b8622",
+                    "placementType": "wall",
+                    "snappedToWall": "bedroom-wall-bottom"
+                },
+                {
+                    "id": "bedroom-window-01",
+                    "name": "Cửa sổ phòng ngủ",
+                    "type": "model",
+                    "position": [
+                        2.8,
+                        1.55,
+                        3.62
+                    ],
+                    "rotation": [
+                        0,
+                        0,
+                        0,
+                        1
+                    ],
+                    "color": "#4a90e2",
+                    "size": [
+                        1.4,
+                        1.2,
+                        0.05
+                    ],
+                    "modelUrl": "https://storage.mazig.io/catalog/models/flora-master/SlideWindowLeaf05_018.glb",
+                    "placementType": "wall",
+                    "snappedToWall": "bedroom-wall-top",
+                    "objectRole": "window",
+                    "catalogItemId": "4821ab19-b99f-4434-9db3-6ff0f15367f7",
+                    "selectedColorHex": "#FFFFFF",
+                    "selectedColorName": "Trắng",
+                    "selectedMaterialName": "Gỗ",
+                    "variantPriceCents": 1000000
+                }
+            ]
+        },
+        {
+            "optionId": "variant_4",
+            "label": "Option 4",
+            "layoutScore": -34343,
+            "hardValid": false,
+            "complete": true,
+            "coverageRatio": 1,
+            "objects": [
+                {
+                    "name": "Giường ngủ",
+                    "size": [
+                        2.2735625,
+                        0.9901748,
+                        2.0629062
+                    ],
+                    "type": "model",
+                    "color": "#795548",
+                    "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/bed.glb",
+                    "position": {
+                        "x": 3.1315,
+                        "y": 0.4950874,
+                        "z": 1.787
+                    },
+                    "rotation": {
+                        "x": 0,
+                        "y": -1,
+                        "z": 0,
+                        "w": 0
+                    },
+                    "objectRole": null,
+                    "catalogItemId": "9a92b108-99d8-4efa-874e-d950e77bfeca"
+                },
+                {
+                    "name": "Tủ quần áo gỗ",
+                    "size": [
+                        0.600063,
+                        2.399568,
+                        1.6
+                    ],
+                    "type": "model",
+                    "color": "#000000",
+                    "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/wardrobe.glb",
+                    "position": {
+                        "x": 1.5,
+                        "y": 1.199784,
+                        "z": 2.8
+                    },
+                    "rotation": {
+                        "x": 0,
+                        "y": 1,
+                        "z": 0,
+                        "w": 0
+                    },
+                    "objectRole": null,
+                    "catalogItemId": "d597f466-6922-4054-992e-96c32a6a410e"
+                },
+                {
+                    "name": "Tủ cạnh giường",
+                    "size": [
+                        0.45,
+                        0.496503,
+                        0.45
+                    ],
+                    "type": "model",
+                    "color": "#3679b3",
+                    "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/sidebed_table.glb",
+                    "position": {
+                        "x": 1.775,
+                        "y": 0.2482515,
+                        "z": 0.525
+                    },
+                    "rotation": {
+                        "x": 0,
+                        "y": 0.707106781187,
+                        "z": 0,
+                        "w": -0.707106781187
+                    },
+                    "objectRole": null,
+                    "catalogItemId": "088d63ee-5308-4431-927d-426ee45b2183"
+                },
+                {
+                    "name": "Ghế tựa Rustic 2",
+                    "size": [
+                        0.511594,
+                        0.849661,
+                        0.495875
+                    ],
+                    "type": "model",
+                    "color": "#000000",
+                    "modelUrl": "https://storage.mazig.io/catalog/models/rustic-khach/models/rustic-khach/Group2132577564.glb",
+                    "position": {
+                        "x": 1.306,
+                        "y": 0.4248305,
+                        "z": 1.498
+                    },
+                    "rotation": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0,
+                        "w": -1
+                    },
+                    "objectRole": null,
+                    "catalogItemId": "5b3b4c7a-38ed-4bc9-88b3-92855c4b5686"
+                }
+            ],
+            "openings": [
+                {
+                    "id": "bedroom-door-01",
+                    "name": "Cửa phòng ngủ",
+                    "size": [
+                        0.9,
+                        2.1,
+                        0.1
+                    ],
+                    "type": "model",
+                    "color": "#4a90e2",
+                    "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/door.glb",
+                    "position": [
+                        0.95,
+                        1.05,
+                        -0.02
+                    ],
+                    "rotation": [
+                        0,
+                        1,
+                        0,
+                        6.123233995736766e-17
+                    ],
+                    "objectRole": "door",
+                    "catalogItemId": "f815cab8-9cc8-45cb-b4b6-deba805b8622",
+                    "placementType": "wall",
+                    "snappedToWall": "bedroom-wall-bottom"
+                },
+                {
+                    "id": "bedroom-window-01",
+                    "name": "Cửa sổ phòng ngủ",
+                    "type": "model",
+                    "position": [
+                        2.8,
+                        1.55,
+                        3.62
+                    ],
+                    "rotation": [
+                        0,
+                        0,
+                        0,
+                        1
+                    ],
+                    "color": "#4a90e2",
+                    "size": [
+                        1.4,
+                        1.2,
+                        0.05
+                    ],
+                    "modelUrl": "https://storage.mazig.io/catalog/models/flora-master/SlideWindowLeaf05_018.glb",
+                    "placementType": "wall",
+                    "snappedToWall": "bedroom-wall-top",
+                    "objectRole": "window",
+                    "catalogItemId": "4821ab19-b99f-4434-9db3-6ff0f15367f7",
+                    "selectedColorHex": "#FFFFFF",
+                    "selectedColorName": "Trắng",
+                    "selectedMaterialName": "Gỗ",
+                    "variantPriceCents": 1000000
+                }
+            ]
+        },
+        {
+            "optionId": "variant_5",
+            "label": "Option 5",
+            "layoutScore": -32345,
+            "hardValid": false,
+            "complete": true,
+            "coverageRatio": 1,
+            "objects": [
+                {
+                    "name": "Giường ngủ",
+                    "size": [
+                        2.2735625,
+                        0.9901748,
+                        2.0629062
+                    ],
+                    "type": "model",
+                    "color": "#795548",
+                    "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/bed.glb",
+                    "position": {
+                        "x": 3.1315,
+                        "y": 0.4950874,
+                        "z": 2.437
+                    },
+                    "rotation": {
+                        "x": 0,
+                        "y": -1,
+                        "z": 0,
+                        "w": 0
+                    },
+                    "objectRole": null,
+                    "catalogItemId": "9a92b108-99d8-4efa-874e-d950e77bfeca"
+                },
+                {
+                    "name": "Tủ quần áo gỗ",
+                    "size": [
+                        0.600063,
+                        2.399568,
+                        1.6
+                    ],
+                    "type": "model",
+                    "color": "#000000",
+                    "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/wardrobe.glb",
+                    "position": {
+                        "x": 1.5,
+                        "y": 1.199784,
+                        "z": 2.8
+                    },
+                    "rotation": {
+                        "x": 0,
+                        "y": 1,
+                        "z": 0,
+                        "w": 0
+                    },
+                    "objectRole": null,
+                    "catalogItemId": "d597f466-6922-4054-992e-96c32a6a410e"
+                },
+                {
+                    "name": "Tủ cạnh giường",
+                    "size": [
+                        0.45,
+                        0.496503,
+                        0.45
+                    ],
+                    "type": "model",
+                    "color": "#3679b3",
+                    "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/sidebed_table.glb",
+                    "position": {
+                        "x": 1.775,
+                        "y": 0.2482515,
+                        "z": 0.375
+                    },
+                    "rotation": {
+                        "x": 0,
+                        "y": 0.707106781187,
+                        "z": 0,
+                        "w": -0.707106781187
+                    },
+                    "objectRole": null,
+                    "catalogItemId": "088d63ee-5308-4431-927d-426ee45b2183"
+                },
+                {
+                    "name": "Ghế tựa Rustic 2",
+                    "size": [
+                        0.511594,
+                        0.849661,
+                        0.495875
+                    ],
+                    "type": "model",
+                    "color": "#000000",
+                    "modelUrl": "https://storage.mazig.io/catalog/models/rustic-khach/models/rustic-khach/Group2132577564.glb",
+                    "position": {
+                        "x": 1.306,
+                        "y": 0.4248305,
+                        "z": 1.498
+                    },
+                    "rotation": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0,
+                        "w": -1
+                    },
+                    "objectRole": null,
+                    "catalogItemId": "5b3b4c7a-38ed-4bc9-88b3-92855c4b5686"
+                }
+            ],
+            "openings": [
+                {
+                    "id": "bedroom-door-01",
+                    "name": "Cửa phòng ngủ",
+                    "size": [
+                        0.9,
+                        2.1,
+                        0.1
+                    ],
+                    "type": "model",
+                    "color": "#4a90e2",
+                    "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/door.glb",
+                    "position": [
+                        0.95,
+                        1.05,
+                        -0.02
+                    ],
+                    "rotation": [
+                        0,
+                        1,
+                        0,
+                        6.123233995736766e-17
+                    ],
+                    "objectRole": "door",
+                    "catalogItemId": "f815cab8-9cc8-45cb-b4b6-deba805b8622",
+                    "placementType": "wall",
+                    "snappedToWall": "bedroom-wall-bottom"
+                },
+                {
+                    "id": "bedroom-window-01",
+                    "name": "Cửa sổ phòng ngủ",
+                    "type": "model",
+                    "position": [
+                        2.8,
+                        1.55,
+                        3.62
+                    ],
+                    "rotation": [
+                        0,
+                        0,
+                        0,
+                        1
+                    ],
+                    "color": "#4a90e2",
+                    "size": [
+                        1.4,
+                        1.2,
+                        0.05
+                    ],
+                    "modelUrl": "https://storage.mazig.io/catalog/models/flora-master/SlideWindowLeaf05_018.glb",
+                    "placementType": "wall",
+                    "snappedToWall": "bedroom-wall-top",
+                    "objectRole": "window",
+                    "catalogItemId": "4821ab19-b99f-4434-9db3-6ff0f15367f7",
+                    "selectedColorHex": "#FFFFFF",
+                    "selectedColorName": "Trắng",
+                    "selectedMaterialName": "Gỗ",
+                    "variantPriceCents": 1000000
+                }
+            ]
+        }
+    ],
+    "selectionSummary": {
+        "requested_count": 5,
+        "candidate_count": 5,
+        "returned_count": 5,
+        "macro_distinct_candidate_count": 2,
+        "macro_distinct_returned_count": 2,
+        "visual_family_distinct_candidate_count": 5,
+        "visual_family_distinct_returned_count": 5,
+        "fallback_near_distinct_count": 1,
+        "collapsed_macro_layouts": [],
+        "collapsed_visual_families": [],
+        "notes": [
+            "Final gallery backfilled near-distinct options after exhausting strongly distinct visual families."
+        ]
+    }
+}

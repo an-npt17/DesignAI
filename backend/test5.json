@@ -1,0 +1,145 @@
+{
+  "room": {
+    "key": "simple-kitchen-01-full-functionality",
+    "name": "Bếp đơn giản đầy đủ công năng",
+    "polygons": [
+      [
+        0,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        0,
+        4
+      ]
+    ],
+    "materialId": "linoleum_light",
+    "description": "Phòng bếp 12 mét vuông, kích thước 3.0m x 4.0m, phong cách hiện đại và công năng. Design a kitchen with full functionality for me. Bố trí đầy đủ khu nấu, bồn rửa, tủ lạnh, mặt bàn chuẩn bị, tủ lưu trữ trên và dưới, ánh sáng trần, và lối đi thao tác thoải mái. Cửa vào nằm trên tường trái. Cửa sổ nằm trên tường dưới, ưu tiên đặt bồn rửa hoặc khu chuẩn bị gần cửa sổ nếu phù hợp.",
+    "materialLabel": "Sàn sáng"
+  },
+  "walls": [
+    {
+      "id": "kitchen-wall-bottom",
+      "color": "#cccccc",
+      "height": 2.7,
+      "endPoint": [
+        3,
+        0
+      ],
+      "thickness": 0.12,
+      "startPoint": [
+        0,
+        0
+      ]
+    },
+    {
+      "id": "kitchen-wall-right",
+      "color": "#cccccc",
+      "height": 2.7,
+      "endPoint": [
+        3,
+        4
+      ],
+      "thickness": 0.12,
+      "startPoint": [
+        3,
+        0
+      ]
+    },
+    {
+      "id": "kitchen-wall-top",
+      "color": "#cccccc",
+      "height": 2.7,
+      "endPoint": [
+        0,
+        4
+      ],
+      "thickness": 0.12,
+      "startPoint": [
+        3,
+        4
+      ]
+    },
+    {
+      "id": "kitchen-wall-left",
+      "color": "#cccccc",
+      "height": 2.7,
+      "endPoint": [
+        0,
+        0
+      ],
+      "thickness": 0.12,
+      "startPoint": [
+        0,
+        4
+      ]
+    }
+  ],
+  "openings": [
+    {
+      "id": "kitchen-door-01",
+      "name": "Cửa bếp",
+      "size": [
+        0.9,
+        2.1,
+        0.1
+      ],
+      "type": "model",
+      "color": "#4a90e2",
+      "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/door.glb",
+      "position": [
+        -0.02,
+        1.05,
+        1
+      ],
+      "rotation": [
+        0,
+        0.707106781187,
+        0,
+        0.707106781187
+      ],
+      "objectRole": "door",
+      "catalogItemId": "f815cab8-9cc8-45cb-b4b6-deba805b8622",
+      "placementType": "wall",
+      "snappedToWall": "kitchen-wall-left"
+    },
+    {
+      "id": "kitchen-window-01",
+      "name": "Cửa sổ bếp",
+      "type": "model",
+      "position": [
+        1.5,
+        1.55,
+        -0.02
+      ],
+      "rotation": [
+        0,
+        1,
+        0,
+        6.123233995736766e-17
+      ],
+      "color": "#4a90e2",
+      "size": [
+        1.2,
+        1.2,
+        0.05
+      ],
+      "modelUrl": "https://storage.mazig.io/catalog/models/flora-master/SlideWindowLeaf05_018.glb",
+      "placementType": "wall",
+      "snappedToWall": "kitchen-wall-bottom",
+      "objectRole": "window",
+      "catalogItemId": "4821ab19-b99f-4434-9db3-6ff0f15367f7",
+      "selectedColorHex": "#FFFFFF",
+      "selectedColorName": "Trắng",
+      "selectedMaterialName": "Gỗ",
+      "variantPriceCents": 1000000
+    }
+  ]
+}

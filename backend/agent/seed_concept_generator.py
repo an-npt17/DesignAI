@@ -8,7 +8,6 @@ from dataclasses import dataclass
 from typing import Literal
 
 from clients.base_client import ChatMessage
-from clients.gemini_client import GeminiClient
 from clients.llm_client import get_llm_client
 
 try:
@@ -45,6 +44,7 @@ except Exception:  # pragma: no cover
             ]
 
 
+from layout.room_profiles.registry import profile_room_type_for_objects
 from layout.variant_family import SLEEP_VARIANT_FAMILIES
 
 logger = logging.getLogger(__name__)
@@ -169,6 +169,9 @@ class ClusterProgram:
     relation_intents: tuple[Mapping[str, object], ...]
     seed_region_tags: tuple[str, ...]
     object_ids: tuple[str, ...]
+    required_object_ids: tuple[str, ...]
+    optional_object_ids: tuple[str, ...]
+    droppable_object_ids: tuple[str, ...]
 
     @property
     def dominant_anchor_object_id(self) -> str | None:
@@ -670,6 +673,22 @@ def _build_cluster_programs(
             semantic.get("zone_claims") or _cluster_rules(cluster).get("zone_claims")
         )
         object_ids = tuple(_cluster_object_ids(cluster))
+        object_program = _mapping_or_empty(cluster.get("object_program"))
+        required_object_ids = tuple(
+            item
+            for item in _string_list(object_program.get("required_object_ids"))
+            if item in object_ids
+        )
+        optional_object_ids = tuple(
+            item
+            for item in _string_list(object_program.get("optional_object_ids"))
+            if item in object_ids
+        )
+        droppable_object_ids = tuple(
+            item
+            for item in _string_list(object_program.get("droppable_ids"))
+            if item in object_ids
+        )
         semantic_role = _clean_str(
             semantic.get("semantic_role")
         ) or _semantic_role_from_cluster(cluster_id, object_ids)
@@ -691,6 +710,9 @@ def _build_cluster_programs(
                 relation_intents=relation_intents,
                 seed_region_tags=tuple(_seed_region_tags(cluster)),
                 object_ids=object_ids,
+                required_object_ids=required_object_ids,
+                optional_object_ids=optional_object_ids,
+                droppable_object_ids=droppable_object_ids,
             )
         )
     return programs
@@ -1672,6 +1694,7 @@ def _instantiate_concept_families(
                 primary_pair_contracts=primary_pair_contracts,
                 primary_cluster_id=primary_cluster_id,
                 secondary_cluster_id=secondary_cluster_id,
+                cluster_programs=cluster_programs,
             ),
             "object_solver_policy": _object_solver_policy_for_concept(
                 family=family,
@@ -2614,6 +2637,10 @@ def _allowed_variant_families_for_row(
         if "daylight" in zone_assignment:
             families.extend(["daylight_work", "window_oriented"])
         families.extend(["work_core", "workflow"])
+    elif role_kind == "kitchen":
+        if wall_claim in {"strong", "medium"}:
+            families.append("storage_wall")
+        families.extend(["edge_storage", "perimeter_storage", "workflow"])
     elif role_kind == "storage":
         if wall_claim in {"strong", "medium"}:
             families.append("storage_wall")
@@ -2786,13 +2813,33 @@ def _anchor_pair_contracts_for_concept(
     primary_pair_contracts: Sequence[Mapping[str, object]],
     primary_cluster_id: str | None,
     secondary_cluster_id: str | None,
+    cluster_programs: Sequence[ClusterProgram],
 ) -> list[dict[str, object]]:
+    required_cluster_ids = {
+        cluster.cluster_id
+        for cluster in cluster_programs
+        if _cluster_has_required_solver_objects(cluster)
+    }
     out: list[dict[str, object]] = []
     for row in primary_pair_contracts:
         if not isinstance(row, Mapping):
             continue
-        out.append(dict(row))
-    if not out and primary_cluster_id and secondary_cluster_id:
+        next_row = dict(row)
+        row_clusters = {
+            str(next_row.get("cluster_a") or ""),
+            str(next_row.get("cluster_b") or ""),
+        }
+        if not row_clusters.issubset(required_cluster_ids):
+            next_row["required"] = False
+            next_row["strength"] = str(next_row.get("strength") or "medium")
+        out.append(next_row)
+    if (
+        not out
+        and primary_cluster_id
+        and secondary_cluster_id
+        and primary_cluster_id in required_cluster_ids
+        and secondary_cluster_id in required_cluster_ids
+    ):
         out.append(
             {
                 "pair_type": "face_each_other",
@@ -2805,6 +2852,17 @@ def _anchor_pair_contracts_for_concept(
     return out
 
 
+def _cluster_has_required_solver_objects(cluster: ClusterProgram) -> bool:
+    has_explicit_object_policy = bool(
+        cluster.required_object_ids
+        or cluster.optional_object_ids
+        or cluster.droppable_object_ids
+    )
+    if has_explicit_object_policy:
+        return bool(cluster.required_object_ids)
+    return bool(cluster.object_ids)
+
+
 def _object_solver_policy_for_concept(
     *,
     family: ConceptFamily,
@@ -2815,16 +2873,27 @@ def _object_solver_policy_for_concept(
     placement_order_by_cluster: dict[str, list[str]] = {}
     for cluster in cluster_programs:
         placement_order_by_cluster[cluster.cluster_id] = list(cluster.object_ids)
-        if cluster.dominant_anchor_object_id:
-            protected_by_cluster.setdefault(cluster.cluster_id, []).append(
-                cluster.dominant_anchor_object_id
-            )
+        required_ids = list(cluster.required_object_ids)
+        has_explicit_object_policy = bool(
+            cluster.required_object_ids
+            or cluster.optional_object_ids
+            or cluster.droppable_object_ids
+        )
+        if (
+            not required_ids
+            and not has_explicit_object_policy
+            and cluster.dominant_anchor_object_id
+        ):
+            required_ids = [cluster.dominant_anchor_object_id]
+        protected_by_cluster[cluster.cluster_id] = required_ids
         optional_ids = [
             object_id
             for object_id in cluster.object_ids
             if object_id not in protected_by_cluster.get(cluster.cluster_id, [])
         ]
-        droppable_by_cluster[cluster.cluster_id] = optional_ids
+        droppable_by_cluster[cluster.cluster_id] = _uniq(
+            [*list(cluster.droppable_object_ids), *optional_ids]
+        )
     return {
         "placement_mode": "anchor_first_object_level",
         "anchor_stage_first": True,
@@ -3561,6 +3630,7 @@ def _semantic_role_from_cluster(cluster_id: str, object_ids: Sequence[str]) -> s
         "media": "focal_anchor",
         "focal": "focal_anchor",
         "storage": "secondary_storage",
+        "kitchen": "kitchen_workflow",
         "work": "work_support",
         "sleep": "rest_anchor",
         "service": "service_support",
@@ -3570,6 +3640,8 @@ def _semantic_role_from_cluster(cluster_id: str, object_ids: Sequence[str]) -> s
 
 def _role_kind(cluster_id: str, object_ids: Sequence[str], semantic_role: str) -> str:
     tokens = " ".join([cluster_id, semantic_role, *object_ids]).lower()
+    if "kitchen" in tokens or profile_room_type_for_objects(object_ids) == "kitchen":
+        return "kitchen"
     if any(token in tokens for token in ("sofa", "sectional", "lounge", "seating")):
         return "social_anchor"
     if any(token in tokens for token in ("tv", "media", "screen", "fireplace")):
@@ -3590,7 +3662,7 @@ def _priority(value: object, role_kind: str) -> Priority:
     text = str(value or "").strip().lower()
     if text in {"core", "support", "optional"}:
         return text  # type: ignore[return-value]
-    if role_kind in {"social_anchor", "media", "sleep"}:
+    if role_kind in {"social_anchor", "media", "sleep", "kitchen"}:
         return "core"
     if role_kind in {"storage", "work", "support"}:
         return "support"
@@ -3938,7 +4010,11 @@ def _seed_concept_guidance_model_chain() -> tuple[str, ...]:
 
 
 def _record_llm_retry(*, stage: str, model_name: str | None, reason: str) -> None:
+    if getattr(TextLLMConfig, "PROVIDER", "") != "gemini":
+        return
     try:
+        from clients.gemini_client import GeminiClient
+
         GeminiClient.record_retry_event(
             stage=stage,
             model_name=model_name,

@@ -586,8 +586,6 @@
           },
           "object_program": {
             "required": [
-              "kitchen_base_cabinet",
-              "fridge",
               "stove",
               "sink"
             ],
@@ -605,14 +603,12 @@
           },
           "semantic": {
             "dominant_anchor_candidates": [
-              "kitchen_base_cabinet"
+              "stove"
             ],
             "notes": []
           },
           "degradation_hints": {
             "preserve_first": [
-              "kitchen_base_cabinet",
-              "fridge",
               "stove",
               "sink"
             ],
@@ -624,21 +620,23 @@
         },
         {
           "cluster_id": "storage_support",
-          "priority": "support",
+          "priority": "core",
           "activation": {
             "base_rule": "may_include_if_useful",
-            "always_consider": false,
+            "always_consider": true,
             "requires_usefulness_test": true,
             "conditions": []
           },
           "object_program": {
-            "required": [],
+            "required": [
+              "fridge",
+              "kitchen_base_cabinet"
+            ],
             "required_if_kept": [],
             "choose_exactly_one_from": [],
             "choose_exactly_one_from_if_kept": [],
             "choose_at_least_one_from": [],
             "optional": [
-              "kitchen_tall_cabinet",
               "pantry_cabinet"
             ],
             "optional_limits": {
@@ -647,14 +645,15 @@
             }
           },
           "semantic": {
-            "dominant_anchor_candidates": [],
+            "dominant_anchor_candidates": [
+              "fridge"
+            ],
             "notes": []
           },
           "degradation_hints": {
             "preserve_first": [],
             "shrink_before_drop": [],
             "drop_first": [
-              "kitchen_tall_cabinet",
               "pantry_cabinet"
             ]
           }

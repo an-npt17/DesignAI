@@ -430,9 +430,7 @@ def _flatten_meta_value(value: Any) -> str:
 
 def _tokenize_text(value: str) -> set[str]:
     return {
-        token
-        for token in re.findall(r"[a-z0-9_]+", value.lower())
-        if len(token) >= 2
+        token for token in re.findall(r"[a-z0-9_]+", value.lower()) if len(token) >= 2
     }
 
 

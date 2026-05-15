@@ -1,926 +1,924 @@
 {
-  "source_unit": "auto",
-  "tenant_id": "demo_tenant",
-  "user_id": "user_f1a4e69d3672aab8",
-  "description": "Design this room with clear circulation and practical furniture placement.",
-  "special_notes": "Avoid blocking doors and windows.",
-  "style": "modern",
-  "payload": {
-    "id": "custom-1778139854385",
-    "name": "My Design",
-    "description": "",
-    "area": 78.78,
-    "polygon": [
+  "id": "custom-1778139854385",
+  "name": "My Design",
+  "description": "",
+  "area": 78.78,
+  "polygon": [
+    [
       [
-        [
-          -3.1,
-          -3.9
-        ],
-        [
-          -3.1,
-          -1.9000000000000001
-        ],
-        [
-          -5.1000000000000005,
-          -1.9000000000000001
-        ],
-        [
-          -5.1,
-          -3.9
-        ]
+        -3.1,
+        -3.9
       ],
       [
-        [
-          0.3,
-          -3.9
-        ],
-        [
-          0.3,
-          -0.7
-        ],
-        [
-          -1.0019848977526817,
-          -0.7000000000000001
-        ],
-        [
-          -3.1,
-          -0.7000000000000001
-        ],
-        [
-          -3.1,
-          -1.9000000000000001
-        ],
-        [
-          -3.1,
-          -3.9
-        ]
+        -3.1,
+        -1.9000000000000001
       ],
       [
-        [
-          5,
-          -3.9000000000000004
-        ],
-        [
-          5,
-          3.9000000000000004
-        ],
-        [
-          1.6,
-          3.9
-        ],
-        [
-          1.6,
-          1.5
-        ],
-        [
-          0.3,
-          1.5
-        ],
-        [
-          -1,
-          1.5
-        ],
-        [
-          -1.0019848977526817,
-          -0.7000000000000001
-        ],
-        [
-          0.3,
-          -0.7
-        ],
-        [
-          0.3,
-          -3.9
-        ]
+        -5.1000000000000005,
+        -1.9000000000000001
       ],
       [
-        [
-          -1,
-          3.9
-        ],
-        [
-          -1,
-          2
-        ],
-        [
-          -1,
-          1.5
-        ],
-        [
-          0.3,
-          1.5
-        ],
-        [
-          1.6,
-          1.5
-        ],
-        [
-          1.6,
-          3.9
-        ]
-      ],
-      [
-        [
-          -3.1,
-          3.9
-        ],
-        [
-          -5.1,
-          3.9
-        ],
-        [
-          -5.1,
-          2
-        ],
-        [
-          -3.1,
-          2
-        ],
-        [
-          -1,
-          2
-        ],
-        [
-          -1,
-          3.9
-        ]
-      ],
-      [
-        [
-          -5.1000000000000005,
-          -1.9000000000000001
-        ],
-        [
-          -3.1,
-          -1.9000000000000001
-        ],
-        [
-          -3.1,
-          -0.7000000000000001
-        ],
-        [
-          -1.0019848977526817,
-          -0.7000000000000001
-        ],
-        [
-          -1,
-          1.5
-        ],
-        [
-          -1,
-          2
-        ],
-        [
-          -3.1,
-          2
-        ],
-        [
-          -5.1,
-          2
-        ]
+        -5.1,
+        -3.9
       ]
     ],
-    "rooms": [
-      {
-        "key": "-4:-3",
-        "name": "Logia",
-        "polygons": [
-          [
-            -3.1,
-            -3.9
-          ],
-          [
-            -3.1,
-            -1.9000000000000001
-          ],
-          [
-            -5.1000000000000005,
-            -1.9000000000000001
-          ],
-          [
-            -5.1,
-            -3.9
-          ]
-        ],
-        "materialId": "concrete_light",
-        "materialLabel": ""
-      },
-      {
-        "key": "-1.5:-2.5",
-        "name": "Phòng ngủ 2",
-        "polygons": [
-          [
-            0.3,
-            -3.9
-          ],
-          [
-            0.3,
-            -0.7
-          ],
-          [
-            -1.0019848977526817,
-            -0.7000000000000001
-          ],
-          [
-            -3.1,
-            -0.7000000000000001
-          ],
-          [
-            -3.1,
-            -1.9000000000000001
-          ],
-          [
-            -3.1,
-            -3.9
-          ]
-        ],
-        "materialId": "linoleum_light",
-        "materialLabel": "Linoleum Sáng"
-      },
-      {
-        "key": "2.5:0",
-        "name": "Phòng sinh hoạt",
-        "polygons": [
-          [
-            5,
-            -3.9000000000000004
-          ],
-          [
-            5,
-            3.9000000000000004
-          ],
-          [
-            1.6,
-            3.9
-          ],
-          [
-            1.6,
-            1.5
-          ],
-          [
-            0.3,
-            1.5
-          ],
-          [
-            -1,
-            1.5
-          ],
-          [
-            -1.0019848977526817,
-            -0.7000000000000001
-          ],
-          [
-            0.3,
-            -0.7
-          ],
-          [
-            0.3,
-            -3.9
-          ]
-        ],
-        "materialId": "classic",
-        "materialLabel": "Cổ điển"
-      },
-      {
-        "key": "0.5:2.5",
-        "name": "Phòng tắm 1",
-        "polygons": [
-          [
-            -1,
-            3.9
-          ],
-          [
-            -1,
-            2
-          ],
-          [
-            -1,
-            1.5
-          ],
-          [
-            0.3,
-            1.5
-          ],
-          [
-            1.6,
-            1.5
-          ],
-          [
-            1.6,
-            3.9
-          ]
-        ],
-        "materialId": "marble_mosaic_white",
-        "materialLabel": "Đá Cẩm Thạch Trắng"
-      },
-      {
-        "key": "-3:3",
-        "name": "Phòng tắm 2",
-        "polygons": [
-          [
-            -3.1,
-            3.9
-          ],
-          [
-            -5.1,
-            3.9
-          ],
-          [
-            -5.1,
-            2
-          ],
-          [
-            -3.1,
-            2
-          ],
-          [
-            -1,
-            2
-          ],
-          [
-            -1,
-            3.9
-          ]
-        ],
-        "materialId": "marble_mosaic_white",
-        "materialLabel": "Đá Cẩm Thạch Trắng"
-      },
-      {
-        "key": "-3:0.5",
-        "name": "Phòng ngủ chính",
-        "polygons": [
-          [
-            -5.1000000000000005,
-            -1.9000000000000001
-          ],
-          [
-            -3.1,
-            -1.9000000000000001
-          ],
-          [
-            -3.1,
-            -0.7000000000000001
-          ],
-          [
-            -1.0019848977526817,
-            -0.7000000000000001
-          ],
-          [
-            -1,
-            1.5
-          ],
-          [
-            -1,
-            2
-          ],
-          [
-            -3.1,
-            2
-          ],
-          [
-            -5.1,
-            2
-          ]
-        ],
-        "materialId": "linoleum_light",
-        "materialLabel": "Linoleum Sáng"
-      }
+    [
+      [
+        0.3,
+        -3.9
+      ],
+      [
+        0.3,
+        -0.7
+      ],
+      [
+        -1.0019848977526817,
+        -0.7000000000000001
+      ],
+      [
+        -3.1,
+        -0.7000000000000001
+      ],
+      [
+        -3.1,
+        -1.9000000000000001
+      ],
+      [
+        -3.1,
+        -3.9
+      ]
     ],
-    "walls": [
-      {
-        "id": "a2-outer-01",
-        "color": "#cccccc",
-        "height": 2.65,
-        "endPoint": [
+    [
+      [
+        5,
+        -3.9000000000000004
+      ],
+      [
+        5,
+        3.9000000000000004
+      ],
+      [
+        1.6,
+        3.9
+      ],
+      [
+        1.6,
+        1.5
+      ],
+      [
+        0.3,
+        1.5
+      ],
+      [
+        -1,
+        1.5
+      ],
+      [
+        -1.0019848977526817,
+        -0.7000000000000001
+      ],
+      [
+        0.3,
+        -0.7
+      ],
+      [
+        0.3,
+        -3.9
+      ]
+    ],
+    [
+      [
+        -1,
+        3.9
+      ],
+      [
+        -1,
+        2
+      ],
+      [
+        -1,
+        1.5
+      ],
+      [
+        0.3,
+        1.5
+      ],
+      [
+        1.6,
+        1.5
+      ],
+      [
+        1.6,
+        3.9
+      ]
+    ],
+    [
+      [
+        -3.1,
+        3.9
+      ],
+      [
+        -5.1,
+        3.9
+      ],
+      [
+        -5.1,
+        2
+      ],
+      [
+        -3.1,
+        2
+      ],
+      [
+        -1,
+        2
+      ],
+      [
+        -1,
+        3.9
+      ]
+    ],
+    [
+      [
+        -5.1000000000000005,
+        -1.9000000000000001
+      ],
+      [
+        -3.1,
+        -1.9000000000000001
+      ],
+      [
+        -3.1,
+        -0.7000000000000001
+      ],
+      [
+        -1.0019848977526817,
+        -0.7000000000000001
+      ],
+      [
+        -1,
+        1.5
+      ],
+      [
+        -1,
+        2
+      ],
+      [
+        -3.1,
+        2
+      ],
+      [
+        -5.1,
+        2
+      ]
+    ]
+  ],
+  "rooms": [
+    {
+      "key": "-4:-3",
+      "name": "Logia",
+      "polygons": [
+        [
           -3.1,
           -3.9
         ],
-        "thickness": 0.14,
-        "startPoint": [
+        [
+          -3.1,
+          -1.9000000000000001
+        ],
+        [
+          -5.1000000000000005,
+          -1.9000000000000001
+        ],
+        [
           -5.1,
           -3.9
         ]
-      },
-      {
-        "id": "a2-outer-02",
-        "color": "#cccccc",
-        "height": 2.65,
-        "endPoint": [
+      ],
+      "materialId": "concrete_light",
+      "description": "",
+      "materialLabel": ""
+    },
+    {
+      "key": "-1.5:-2.5",
+      "name": "Phòng ngủ 2",
+      "polygons": [
+        [
           0.3,
           -3.9
         ],
-        "thickness": 0.14,
-        "startPoint": [
-          -3.1,
-          -3.9
-        ]
-      },
-      {
-        "id": "a2-outer-08",
-        "color": "#cccccc",
-        "height": 2.65,
-        "endPoint": [
-          -1,
-          3.9
-        ],
-        "thickness": 0.14,
-        "startPoint": [
-          1.6,
-          3.9
-        ]
-      },
-      {
-        "id": "a2-outer-09",
-        "color": "#cccccc",
-        "height": 2.65,
-        "endPoint": [
-          -3.1,
-          3.9
-        ],
-        "thickness": 0.14,
-        "startPoint": [
-          -1,
-          3.9
-        ]
-      },
-      {
-        "id": "a2-outer-10",
-        "color": "#cccccc",
-        "height": 2.65,
-        "endPoint": [
-          -5.1,
-          3.9
-        ],
-        "thickness": 0.14,
-        "startPoint": [
-          -3.1,
-          3.9
-        ]
-      },
-      {
-        "id": "a2-outer-11",
-        "color": "#cccccc",
-        "height": 2.65,
-        "endPoint": [
-          -5.1,
-          2
-        ],
-        "thickness": 0.14,
-        "startPoint": [
-          -5.1,
-          3.9
-        ]
-      },
-      {
-        "id": "a2-pn2-right",
-        "color": "#cccccc",
-        "height": 2.65,
-        "endPoint": [
+        [
           0.3,
           -0.7
         ],
-        "thickness": 0.12,
-        "startPoint": [
-          0.3,
-          -3.9
-        ]
-      },
-      {
-        "id": "a2-master-right-02",
-        "color": "#cccccc",
-        "height": 2.65,
-        "endPoint": [
-          -1,
-          2
-        ],
-        "thickness": 0.12,
-        "startPoint": [
-          -1,
-          1.5
-        ]
-      },
-      {
-        "id": "a2-master-wc-top",
-        "color": "#cccccc",
-        "height": 2.65,
-        "endPoint": [
-          -3.1,
-          2
-        ],
-        "thickness": 0.12,
-        "startPoint": [
-          -5.1,
-          2
-        ]
-      },
-      {
-        "id": "a2-hall-top",
-        "color": "#cccccc",
-        "height": 2.65,
-        "endPoint": [
-          -1,
-          2
-        ],
-        "thickness": 0.12,
-        "startPoint": [
-          -3.1,
-          2
-        ]
-      },
-      {
-        "id": "a2-hall-right",
-        "color": "#cccccc",
-        "height": 2.65,
-        "endPoint": [
-          -1,
-          3.9
-        ],
-        "thickness": 0.12,
-        "startPoint": [
-          -1,
-          2
-        ]
-      },
-      {
-        "id": "a2-wc-common-bottom",
-        "color": "#cccccc",
-        "height": 2.65,
-        "endPoint": [
-          0.3,
-          1.5
-        ],
-        "thickness": 0.12,
-        "startPoint": [
-          -1,
-          1.5
-        ]
-      },
-      {
-        "id": "a2-living-kitchen-bottom",
-        "color": "#cccccc",
-        "height": 2.65,
-        "endPoint": [
-          1.6,
-          1.5
-        ],
-        "thickness": 0.12,
-        "startPoint": [
-          0.3,
-          1.5
-        ]
-      },
-      {
-        "id": "a2-entry-left",
-        "color": "#cccccc",
-        "height": 2.65,
-        "endPoint": [
-          1.6,
-          3.9
-        ],
-        "thickness": 0.12,
-        "startPoint": [
-          1.6,
-          1.5
-        ]
-      },
-      {
-        "id": "wall-1778121926077-318jxwyyf",
-        "color": "#cccccc",
-        "height": 2.65,
-        "endPoint": [
+        [
           -1.0019848977526817,
           -0.7000000000000001
         ],
-        "thickness": 0.12,
-        "startPoint": [
-          -1.0019848977526817,
-          1.5
-        ]
-      },
-      {
-        "id": "wall-1778121927744-1d56fyk49",
-        "color": "#cccccc",
-        "height": 2.65,
-        "endPoint": [
-          0.3,
-          -0.6984735949286094
+        [
+          -3.1,
+          -0.7000000000000001
         ],
-        "thickness": 0.12,
-        "startPoint": [
-          -1,
-          -0.6984735949286095
+        [
+          -3.1,
+          -1.9000000000000001
+        ],
+        [
+          -3.1,
+          -3.9
         ]
-      },
-      {
-        "id": "wall-1778122197248-of5czrdre",
-        "color": "#cccccc",
-        "height": 2.65,
-        "endPoint": [
+      ],
+      "materialId": "linoleum_light",
+      "description": "Phòng ngủ 36 mét vuông, 1 giường ngủ, tủ quần áo ở góc trái phòng, có một tủ đầu giường. Cửa sổ nằm bên tay phải vị trí giường theo chiều của đầu giường",
+      "materialLabel": "Linoleum Sáng"
+    },
+    {
+      "key": "2.5:0",
+      "name": "Phòng sinh hoạt",
+      "polygons": [
+        [
           5,
           -3.9000000000000004
         ],
-        "thickness": 0.12,
-        "startPoint": [
-          0.3,
-          -3.9
-        ]
-      },
-      {
-        "id": "wall-1778122217226-32za7v5zr",
-        "color": "#cccccc",
-        "height": 2.65,
-        "endPoint": [
+        [
           5,
           3.9000000000000004
         ],
-        "thickness": 0.12,
-        "startPoint": [
-          5,
-          -3.9000000000000004
-        ]
-      },
-      {
-        "id": "wall-1778122219660-e37g20bzy",
-        "color": "#cccccc",
-        "height": 2.65,
-        "endPoint": [
+        [
           1.6,
           3.9
         ],
-        "thickness": 0.12,
-        "startPoint": [
-          5,
-          3.9000000000000004
-        ]
-      },
-      {
-        "id": "wall-1778137343492-yg7htp6qy",
-        "color": "#cccccc",
-        "height": 2.65,
-        "endPoint": [
-          -5.1000000000000005,
-          -1.9000000000000001
+        [
+          1.6,
+          1.5
         ],
-        "thickness": 0.12,
-        "startPoint": [
-          -5.1,
-          -3.9
-        ]
-      },
-      {
-        "id": "wall-1778137374718-vzak4wpgl",
-        "color": "#cccccc",
-        "height": 2.65,
-        "endPoint": [
-          -3.1,
-          -1.9000000000000001
+        [
+          0.3,
+          1.5
         ],
-        "thickness": 0.12,
-        "startPoint": [
-          -3.1,
-          -3.9
-        ]
-      },
-      {
-        "id": "wall-1778137377564-0qzqjv6ht",
-        "color": "#cccccc",
-        "height": 2.65,
-        "endPoint": [
-          -5.1000000000000005,
-          -1.9000000000000001
+        [
+          -1,
+          1.5
         ],
-        "thickness": 0.12,
-        "startPoint": [
-          -3.1,
-          -1.9000000000000001
-        ]
-      },
-      {
-        "id": "wall-1778137383347-kljkw4plv",
-        "color": "#cccccc",
-        "height": 2.65,
-        "endPoint": [
-          -5.1,
-          2
-        ],
-        "thickness": 0.12,
-        "startPoint": [
-          -5.1000000000000005,
-          -1.9000000000000001
-        ]
-      },
-      {
-        "id": "wall-1778137485980-l5w4uep6n",
-        "color": "#cccccc",
-        "height": 2.65,
-        "endPoint": [
-          -3.1,
-          -0.7000000000000001
-        ],
-        "thickness": 0.12,
-        "startPoint": [
-          -3.1,
-          -1.9000000000000001
-        ]
-      },
-      {
-        "id": "wall-1778137488228-kz4ceekn5",
-        "color": "#cccccc",
-        "height": 2.65,
-        "endPoint": [
+        [
           -1.0019848977526817,
           -0.7000000000000001
         ],
-        "thickness": 0.12,
-        "startPoint": [
+        [
+          0.3,
+          -0.7
+        ],
+        [
+          0.3,
+          -3.9
+        ]
+      ],
+      "materialId": "classic",
+      "description": "",
+      "materialLabel": "Cổ điển"
+    },
+    {
+      "key": "0.5:2.5",
+      "name": "Phòng tắm 1",
+      "polygons": [
+        [
+          -1,
+          3.9
+        ],
+        [
+          -1,
+          2
+        ],
+        [
+          -1,
+          1.5
+        ],
+        [
+          0.3,
+          1.5
+        ],
+        [
+          1.6,
+          1.5
+        ],
+        [
+          1.6,
+          3.9
+        ]
+      ],
+      "materialId": "marble_mosaic_white",
+      "description": "",
+      "materialLabel": "Đá Cẩm Thạch Trắng"
+    },
+    {
+      "key": "-3:3",
+      "name": "Phòng tắm 2",
+      "polygons": [
+        [
+          -3.1,
+          3.9
+        ],
+        [
+          -5.1,
+          3.9
+        ],
+        [
+          -5.1,
+          2
+        ],
+        [
+          -3.1,
+          2
+        ],
+        [
+          -1,
+          2
+        ],
+        [
+          -1,
+          3.9
+        ]
+      ],
+      "materialId": "marble_mosaic_white",
+      "description": "",
+      "materialLabel": "Đá Cẩm Thạch Trắng"
+    },
+    {
+      "key": "-3:0.5",
+      "name": "Phòng ngủ chính",
+      "polygons": [
+        [
+          -5.1000000000000005,
+          -1.9000000000000001
+        ],
+        [
+          -3.1,
+          -1.9000000000000001
+        ],
+        [
           -3.1,
           -0.7000000000000001
+        ],
+        [
+          -1.0019848977526817,
+          -0.7000000000000001
+        ],
+        [
+          -1,
+          1.5
+        ],
+        [
+          -1,
+          2
+        ],
+        [
+          -3.1,
+          2
+        ],
+        [
+          -5.1,
+          2
         ]
-      }
-    ],
-    "objects": [
-      {
-        "name": "Cửa (XHome)",
-        "size": [
-          0.9,
-          2.1,
-          0.1
-        ],
-        "type": "model",
-        "color": "#4a90e2",
-        "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/door.glb",
-        "position": [
-          3.5595479435386204,
-          1.05,
-          3.8400000000000003
-        ],
-        "rotation": [
-          0,
-          1,
-          0,
-          6.123233995736766e-17
-        ],
-        "objectRole": "door",
-        "catalogItemId": "f815cab8-9cc8-45cb-b4b6-deba805b8622",
-        "placementType": "wall",
-        "snappedToWall": "wall-1778122219660-e37g20bzy"
-      },
-      {
-        "name": "Cửa (XHome)",
-        "size": [
-          0.9,
-          2.1,
-          0.1
-        ],
-        "type": "model",
-        "color": "#4a90e2",
-        "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/door.glb",
-        "position": [
-          -0.20053791231203535,
-          1.05,
-          1.52
-        ],
-        "rotation": [
-          0,
-          -3.439913283669533e-15,
-          0,
-          1
-        ],
-        "objectRole": "door",
-        "catalogItemId": "f815cab8-9cc8-45cb-b4b6-deba805b8622",
-        "placementType": "wall",
-        "snappedToWall": "a2-wc-common-bottom"
-      },
-      {
-        "name": "Cửa (XHome)",
-        "size": [
-          0.9,
-          2.1,
-          0.1
-        ],
-        "type": "model",
-        "color": "#4a90e2",
-        "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/door.glb",
-        "position": [
-          -0.32557117090245913,
-          1.05,
-          -0.7599999999999999
-        ],
-        "rotation": [
-          0,
-          1,
-          0,
-          6.123233995736766e-17
-        ],
-        "objectRole": "door",
-        "catalogItemId": "f815cab8-9cc8-45cb-b4b6-deba805b8622",
-        "placementType": "wall",
-        "snappedToWall": "wall-1778121927744-1d56fyk49"
-      },
-      {
-        "name": "Cửa (XHome)",
-        "size": [
-          0.9,
-          2.1,
-          0.1
-        ],
-        "type": "model",
-        "color": "#4a90e2",
-        "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/door.glb",
-        "position": [
-          -1.0219848977526818,
-          1.05,
-          0.05842777001327762
-        ],
-        "rotation": [
-          0,
-          -0.707106781186547,
-          0,
-          0.707106781186548
-        ],
-        "objectRole": "door",
-        "catalogItemId": "f815cab8-9cc8-45cb-b4b6-deba805b8622",
-        "placementType": "wall",
-        "snappedToWall": "wall-1778121926077-318jxwyyf"
-      },
-      {
-        "name": "Cửa (XHome)",
-        "size": [
-          0.9,
-          2.1,
-          0.1
-        ],
-        "type": "model",
-        "color": "#4a90e2",
-        "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/door.glb",
-        "position": [
-          -4.077604217011379,
-          1.05,
-          -1.82
-        ],
-        "rotation": [
-          0,
-          1,
-          0,
-          6.123233995736766e-17
-        ],
-        "objectRole": "door",
-        "catalogItemId": "f815cab8-9cc8-45cb-b4b6-deba805b8622",
-        "placementType": "wall",
-        "snappedToWall": "a2-logia-bottom"
-      },
-      {
-        "name": "Cửa (XHome)",
-        "size": [
-          0.9,
-          2.1,
-          0.1
-        ],
-        "type": "model",
-        "color": "#4a90e2",
-        "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/door.glb",
-        "position": [
-          -2.5915220154384686,
-          1.05,
-          2.02
-        ],
-        "rotation": [
-          0,
-          0,
-          0,
-          1
-        ],
-        "objectRole": "door",
-        "catalogItemId": "f815cab8-9cc8-45cb-b4b6-deba805b8622",
-        "placementType": "wall",
-        "snappedToWall": "a2-hall-top"
-      },
-      {
-        "name": "Cửa (XHome)",
-        "size": [
-          0.9,
-          2.1,
-          0.1
-        ],
-        "type": "model",
-        "color": "#4a90e2",
-        "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/door.glb",
-        "position": [
-          -4.444765620569125,
-          1.05,
-          -1.9200000000000002
-        ],
-        "rotation": [
-          0,
-          1,
-          0,
-          6.123233995736766e-17
-        ],
-        "objectRole": "door",
-        "catalogItemId": "f815cab8-9cc8-45cb-b4b6-deba805b8622",
-        "placementType": "wall",
-        "snappedToWall": "wall-1778137377564-0qzqjv6ht"
-      }
-    ]
-  }
+      ],
+      "materialId": "linoleum_light",
+      "description": "",
+      "materialLabel": "Linoleum Sáng"
+    }
+  ],
+  "walls": [
+    {
+      "id": "a2-outer-01",
+      "color": "#cccccc",
+      "height": 2.65,
+      "endPoint": [
+        -3.1,
+        -3.9
+      ],
+      "thickness": 0.14,
+      "startPoint": [
+        -5.1,
+        -3.9
+      ]
+    },
+    {
+      "id": "a2-outer-02",
+      "color": "#cccccc",
+      "height": 2.65,
+      "endPoint": [
+        0.3,
+        -3.9
+      ],
+      "thickness": 0.14,
+      "startPoint": [
+        -3.1,
+        -3.9
+      ]
+    },
+    {
+      "id": "a2-outer-08",
+      "color": "#cccccc",
+      "height": 2.65,
+      "endPoint": [
+        -1,
+        3.9
+      ],
+      "thickness": 0.14,
+      "startPoint": [
+        1.6,
+        3.9
+      ]
+    },
+    {
+      "id": "a2-outer-09",
+      "color": "#cccccc",
+      "height": 2.65,
+      "endPoint": [
+        -3.1,
+        3.9
+      ],
+      "thickness": 0.14,
+      "startPoint": [
+        -1,
+        3.9
+      ]
+    },
+    {
+      "id": "a2-outer-10",
+      "color": "#cccccc",
+      "height": 2.65,
+      "endPoint": [
+        -5.1,
+        3.9
+      ],
+      "thickness": 0.14,
+      "startPoint": [
+        -3.1,
+        3.9
+      ]
+    },
+    {
+      "id": "a2-outer-11",
+      "color": "#cccccc",
+      "height": 2.65,
+      "endPoint": [
+        -5.1,
+        2
+      ],
+      "thickness": 0.14,
+      "startPoint": [
+        -5.1,
+        3.9
+      ]
+    },
+    {
+      "id": "a2-pn2-right",
+      "color": "#cccccc",
+      "height": 2.65,
+      "endPoint": [
+        0.3,
+        -0.7
+      ],
+      "thickness": 0.12,
+      "startPoint": [
+        0.3,
+        -3.9
+      ]
+    },
+    {
+      "id": "a2-master-right-02",
+      "color": "#cccccc",
+      "height": 2.65,
+      "endPoint": [
+        -1,
+        2
+      ],
+      "thickness": 0.12,
+      "startPoint": [
+        -1,
+        1.5
+      ]
+    },
+    {
+      "id": "a2-master-wc-top",
+      "color": "#cccccc",
+      "height": 2.65,
+      "endPoint": [
+        -3.1,
+        2
+      ],
+      "thickness": 0.12,
+      "startPoint": [
+        -5.1,
+        2
+      ]
+    },
+    {
+      "id": "a2-hall-top",
+      "color": "#cccccc",
+      "height": 2.65,
+      "endPoint": [
+        -1,
+        2
+      ],
+      "thickness": 0.12,
+      "startPoint": [
+        -3.1,
+        2
+      ]
+    },
+    {
+      "id": "a2-hall-right",
+      "color": "#cccccc",
+      "height": 2.65,
+      "endPoint": [
+        -1,
+        3.9
+      ],
+      "thickness": 0.12,
+      "startPoint": [
+        -1,
+        2
+      ]
+    },
+    {
+      "id": "a2-wc-common-bottom",
+      "color": "#cccccc",
+      "height": 2.65,
+      "endPoint": [
+        0.3,
+        1.5
+      ],
+      "thickness": 0.12,
+      "startPoint": [
+        -1,
+        1.5
+      ]
+    },
+    {
+      "id": "a2-living-kitchen-bottom",
+      "color": "#cccccc",
+      "height": 2.65,
+      "endPoint": [
+        1.6,
+        1.5
+      ],
+      "thickness": 0.12,
+      "startPoint": [
+        0.3,
+        1.5
+      ]
+    },
+    {
+      "id": "a2-entry-left",
+      "color": "#cccccc",
+      "height": 2.65,
+      "endPoint": [
+        1.6,
+        3.9
+      ],
+      "thickness": 0.12,
+      "startPoint": [
+        1.6,
+        1.5
+      ]
+    },
+    {
+      "id": "wall-1778121926077-318jxwyyf",
+      "color": "#cccccc",
+      "height": 2.65,
+      "endPoint": [
+        -1.0019848977526817,
+        -0.7000000000000001
+      ],
+      "thickness": 0.12,
+      "startPoint": [
+        -1.0019848977526817,
+        1.5
+      ]
+    },
+    {
+      "id": "wall-1778121927744-1d56fyk49",
+      "color": "#cccccc",
+      "height": 2.65,
+      "endPoint": [
+        0.3,
+        -0.6984735949286094
+      ],
+      "thickness": 0.12,
+      "startPoint": [
+        -1,
+        -0.6984735949286095
+      ]
+    },
+    {
+      "id": "wall-1778122197248-of5czrdre",
+      "color": "#cccccc",
+      "height": 2.65,
+      "endPoint": [
+        5,
+        -3.9000000000000004
+      ],
+      "thickness": 0.12,
+      "startPoint": [
+        0.3,
+        -3.9
+      ]
+    },
+    {
+      "id": "wall-1778122217226-32za7v5zr",
+      "color": "#cccccc",
+      "height": 2.65,
+      "endPoint": [
+        5,
+        3.9000000000000004
+      ],
+      "thickness": 0.12,
+      "startPoint": [
+        5,
+        -3.9000000000000004
+      ]
+    },
+    {
+      "id": "wall-1778122219660-e37g20bzy",
+      "color": "#cccccc",
+      "height": 2.65,
+      "endPoint": [
+        1.6,
+        3.9
+      ],
+      "thickness": 0.12,
+      "startPoint": [
+        5,
+        3.9000000000000004
+      ]
+    },
+    {
+      "id": "wall-1778137343492-yg7htp6qy",
+      "color": "#cccccc",
+      "height": 2.65,
+      "endPoint": [
+        -5.1000000000000005,
+        -1.9000000000000001
+      ],
+      "thickness": 0.12,
+      "startPoint": [
+        -5.1,
+        -3.9
+      ]
+    },
+    {
+      "id": "wall-1778137374718-vzak4wpgl",
+      "color": "#cccccc",
+      "height": 2.65,
+      "endPoint": [
+        -3.1,
+        -1.9000000000000001
+      ],
+      "thickness": 0.12,
+      "startPoint": [
+        -3.1,
+        -3.9
+      ]
+    },
+    {
+      "id": "wall-1778137377564-0qzqjv6ht",
+      "color": "#cccccc",
+      "height": 2.65,
+      "endPoint": [
+        -5.1000000000000005,
+        -1.9000000000000001
+      ],
+      "thickness": 0.12,
+      "startPoint": [
+        -3.1,
+        -1.9000000000000001
+      ]
+    },
+    {
+      "id": "wall-1778137383347-kljkw4plv",
+      "color": "#cccccc",
+      "height": 2.65,
+      "endPoint": [
+        -5.1,
+        2
+      ],
+      "thickness": 0.12,
+      "startPoint": [
+        -5.1000000000000005,
+        -1.9000000000000001
+      ]
+    },
+    {
+      "id": "wall-1778137485980-l5w4uep6n",
+      "color": "#cccccc",
+      "height": 2.65,
+      "endPoint": [
+        -3.1,
+        -0.7000000000000001
+      ],
+      "thickness": 0.12,
+      "startPoint": [
+        -3.1,
+        -1.9000000000000001
+      ]
+    },
+    {
+      "id": "wall-1778137488228-kz4ceekn5",
+      "color": "#cccccc",
+      "height": 2.65,
+      "endPoint": [
+        -1.0019848977526817,
+        -0.7000000000000001
+      ],
+      "thickness": 0.12,
+      "startPoint": [
+        -3.1,
+        -0.7000000000000001
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "name": "Cửa (XHome)",
+      "size": [
+        0.9,
+        2.1,
+        0.1
+      ],
+      "type": "model",
+      "color": "#4a90e2",
+      "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/door.glb",
+      "position": [
+        3.5595479435386204,
+        1.05,
+        3.8400000000000003
+      ],
+      "rotation": [
+        0,
+        1,
+        0,
+        6.123233995736766e-17
+      ],
+      "objectRole": "door",
+      "catalogItemId": "f815cab8-9cc8-45cb-b4b6-deba805b8622",
+      "placementType": "wall",
+      "snappedToWall": "wall-1778122219660-e37g20bzy"
+    },
+    {
+      "name": "Cửa (XHome)",
+      "size": [
+        0.9,
+        2.1,
+        0.1
+      ],
+      "type": "model",
+      "color": "#4a90e2",
+      "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/door.glb",
+      "position": [
+        -0.20053791231203535,
+        1.05,
+        1.52
+      ],
+      "rotation": [
+        0,
+        -3.439913283669533e-15,
+        0,
+        1
+      ],
+      "objectRole": "door",
+      "catalogItemId": "f815cab8-9cc8-45cb-b4b6-deba805b8622",
+      "placementType": "wall",
+      "snappedToWall": "a2-wc-common-bottom"
+    },
+    {
+      "name": "Cửa (XHome)",
+      "size": [
+        0.9,
+        2.1,
+        0.1
+      ],
+      "type": "model",
+      "color": "#4a90e2",
+      "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/door.glb",
+      "position": [
+        -0.32557117090245913,
+        1.05,
+        -0.7599999999999999
+      ],
+      "rotation": [
+        0,
+        1,
+        0,
+        6.123233995736766e-17
+      ],
+      "objectRole": "door",
+      "catalogItemId": "f815cab8-9cc8-45cb-b4b6-deba805b8622",
+      "placementType": "wall",
+      "snappedToWall": "wall-1778121927744-1d56fyk49"
+    },
+    {
+      "name": "Cửa (XHome)",
+      "size": [
+        0.9,
+        2.1,
+        0.1
+      ],
+      "type": "model",
+      "color": "#4a90e2",
+      "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/door.glb",
+      "position": [
+        -1.0219848977526818,
+        1.05,
+        0.05842777001327762
+      ],
+      "rotation": [
+        0,
+        -0.707106781186547,
+        0,
+        0.707106781186548
+      ],
+      "objectRole": "door",
+      "catalogItemId": "f815cab8-9cc8-45cb-b4b6-deba805b8622",
+      "placementType": "wall",
+      "snappedToWall": "wall-1778121926077-318jxwyyf"
+    },
+    {
+      "name": "Cửa (XHome)",
+      "size": [
+        0.9,
+        2.1,
+        0.1
+      ],
+      "type": "model",
+      "color": "#4a90e2",
+      "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/door.glb",
+      "position": [
+        -4.077604217011379,
+        1.05,
+        -1.82
+      ],
+      "rotation": [
+        0,
+        1,
+        0,
+        6.123233995736766e-17
+      ],
+      "objectRole": "door",
+      "catalogItemId": "f815cab8-9cc8-45cb-b4b6-deba805b8622",
+      "placementType": "wall",
+      "snappedToWall": "a2-logia-bottom"
+    },
+    {
+      "name": "Cửa (XHome)",
+      "size": [
+        0.9,
+        2.1,
+        0.1
+      ],
+      "type": "model",
+      "color": "#4a90e2",
+      "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/door.glb",
+      "position": [
+        -2.5915220154384686,
+        1.05,
+        2.02
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "objectRole": "door",
+      "catalogItemId": "f815cab8-9cc8-45cb-b4b6-deba805b8622",
+      "placementType": "wall",
+      "snappedToWall": "a2-hall-top"
+    },
+    {
+      "name": "Cửa (XHome)",
+      "size": [
+        0.9,
+        2.1,
+        0.1
+      ],
+      "type": "model",
+      "color": "#4a90e2",
+      "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/door.glb",
+      "position": [
+        -4.444765620569125,
+        1.05,
+        -1.9200000000000002
+      ],
+      "rotation": [
+        0,
+        1,
+        0,
+        6.123233995736766e-17
+      ],
+      "objectRole": "door",
+      "catalogItemId": "f815cab8-9cc8-45cb-b4b6-deba805b8622",
+      "placementType": "wall",
+      "snappedToWall": "wall-1778137377564-0qzqjv6ht"
+    }
+  ]
 }

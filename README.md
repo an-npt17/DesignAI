@@ -10,7 +10,7 @@ cp .env.example .env
 docker compose up --build
 ```
 
-Runtime inventory, design knowledge, and size profiles are loaded from Postgres. `TKNT_AUTO_LOAD_DEMO_DATA` defaults to `0`; set it to `1` only when you intentionally want to seed the bundled `synthetic_data/inventory.json` into Postgres before serving real requests.
+Runtime inventory is loaded from the external catalog API and filtered to catalog items whose `defaultRotation` is present. Design knowledge and saved user content still use Postgres. `TKNT_AUTO_LOAD_DEMO_DATA` defaults to `0`; set it to `1` only when you intentionally want to seed the bundled `synthetic_data/inventory.json` into Postgres for local fallback work.
 
 ## Switch OpenAI And Azure
 
@@ -266,4 +266,3 @@ Sẽ có trường để chứa dạng đưa vào pipeline/run luôn
     "pipeline_run_request": { "...": "copy thẳng qua /pipeline/run" }
   }
 ]
-

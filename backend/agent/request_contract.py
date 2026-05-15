@@ -5,6 +5,11 @@ from collections.abc import Mapping, Sequence
 from copy import deepcopy
 from typing import Any
 
+from layout.room_profiles.registry import (
+    all_profile_non_functional_contract_types,
+    all_profile_object_aliases,
+)
+
 _OBJECT_ALIASES: dict[str, tuple[str, ...]] = {
     "armchair": ("armchair", "arm chair", "lounge chair", "reading chair"),
     "bed": ("bed", "queen bed", "king bed", "single bed", "double bed"),
@@ -14,12 +19,14 @@ _OBJECT_ALIASES: dict[str, tuple[str, ...]] = {
     "coffee_table": ("coffee table", "tea table", "center table"),
     "desk": ("desk", "work desk", "study desk", "vanity"),
     "floor_lamp": ("floor lamp", "standing lamp", "reading lamp"),
-    "nightstand": ("nightstand", "night stand", "bedside table", "side table"),
+    "nightstand": ("nightstand", "night stand", "bedside table"),
     "rug": ("rug", "carpet"),
+    "side_table": ("side table", "end table"),
     "sofa": ("sofa", "couch", "loveseat", "sectional"),
     "tv_console": ("tv console", "media console", "tv stand"),
     "wardrobe": ("wardrobe", "closet", "armoire"),
 }
+_OBJECT_ALIASES.update(all_profile_object_aliases())
 
 _OPTIONAL_ONLY_PATTERNS = (
     "only if",
@@ -61,7 +68,7 @@ _COUNT_WORDS = {
 _NON_FUNCTIONAL_CONTRACT_TYPES = {
     "ceiling_lamp",
     "rug",
-}
+} | all_profile_non_functional_contract_types()
 _HARD_CONTRACT_INTENTS = {"must_keep", "must_try"}
 _TARGET_CONTRACT_INTENTS = {"target_if_viable", "preferred_if_fit"}
 _SOFT_CONTRACT_INTENTS = {*_TARGET_CONTRACT_INTENTS, "optional_if_surplus"}
@@ -304,6 +311,43 @@ def missing_functional_contract_types(
         if object_type not in present:
             missing.append(object_type)
     return sorted(set(missing))
+
+
+def missing_non_functional_contract_items(
+    *,
+    contract: Mapping[str, Any] | None,
+    objects: Sequence[Mapping[str, Any]],
+) -> list[dict[str, Any]]:
+    present = {
+        canonical_object_type(
+            str(
+                row.get("object_type")
+                or row.get("type")
+                or row.get("category")
+                or row.get("name")
+                or row.get("id")
+                or ""
+            )
+        )
+        for row in objects
+        if isinstance(row, Mapping)
+    }
+    missing: list[dict[str, Any]] = []
+    seen: set[str] = set()
+    for item in _contract_objects(contract):
+        object_type = canonical_object_type(str(item.get("object_type") or ""))
+        if (
+            not object_type
+            or object_type in seen
+            or object_type not in _NON_FUNCTIONAL_CONTRACT_TYPES
+            or object_type in present
+            or contract_intent(item) == "max0"
+            or contract_target_count(item) <= 0
+        ):
+            continue
+        missing.append(deepcopy(item))
+        seen.add(object_type)
+    return missing
 
 
 def canonical_object_type(object_type: str) -> str:

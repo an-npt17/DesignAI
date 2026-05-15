@@ -1,0 +1,145 @@
+{
+  "room": {
+    "key": "bedroom-01",
+    "name": "Phòng ngủ chính",
+    "polygons": [
+      [
+        0,
+        0
+      ],
+      [
+        4.2,
+        0
+      ],
+      [
+        4.2,
+        3.6
+      ],
+      [
+        0,
+        3.6
+      ]
+    ],
+    "materialId": "wood_light",
+    "description": "Phòng ngủ 15 mét vuông, cần 1 giường đôi, 2 tủ đầu giường, 1 tủ quần áo sát tường và một bàn trang điểm nhỏ. Giữ lối đi thoáng từ cửa vào giường, không chắn cửa sổ.",
+    "materialLabel": "Gỗ sáng"
+  },
+  "walls": [
+    {
+      "id": "bedroom-wall-bottom",
+      "color": "#cccccc",
+      "height": 2.8,
+      "endPoint": [
+        4.2,
+        0
+      ],
+      "thickness": 0.12,
+      "startPoint": [
+        0,
+        0
+      ]
+    },
+    {
+      "id": "bedroom-wall-right",
+      "color": "#cccccc",
+      "height": 2.8,
+      "endPoint": [
+        4.2,
+        3.6
+      ],
+      "thickness": 0.12,
+      "startPoint": [
+        4.2,
+        0
+      ]
+    },
+    {
+      "id": "bedroom-wall-top",
+      "color": "#cccccc",
+      "height": 2.8,
+      "endPoint": [
+        0,
+        3.6
+      ],
+      "thickness": 0.12,
+      "startPoint": [
+        4.2,
+        3.6
+      ]
+    },
+    {
+      "id": "bedroom-wall-left",
+      "color": "#cccccc",
+      "height": 2.8,
+      "endPoint": [
+        0,
+        0
+      ],
+      "thickness": 0.12,
+      "startPoint": [
+        0,
+        3.6
+      ]
+    }
+  ],
+  "openings": [
+    {
+      "id": "bedroom-door-01",
+      "name": "Cửa phòng ngủ",
+      "size": [
+        0.9,
+        2.1,
+        0.1
+      ],
+      "type": "model",
+      "color": "#4a90e2",
+      "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/door.glb",
+      "position": [
+        0.95,
+        1.05,
+        -0.02
+      ],
+      "rotation": [
+        0,
+        1,
+        0,
+        6.123233995736766e-17
+      ],
+      "objectRole": "door",
+      "catalogItemId": "f815cab8-9cc8-45cb-b4b6-deba805b8622",
+      "placementType": "wall",
+      "snappedToWall": "bedroom-wall-bottom"
+    },
+    {
+      "id": "bedroom-window-01",
+      "name": "Cửa sổ phòng ngủ",
+      "type": "model",
+      "position": [
+        2.8,
+        1.55,
+        3.62
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "color": "#4a90e2",
+      "size": [
+        1.4,
+        1.2,
+        0.05
+      ],
+      "modelUrl": "https://storage.mazig.io/catalog/models/flora-master/SlideWindowLeaf05_018.glb",
+      "placementType": "wall",
+      "snappedToWall": "bedroom-wall-top",
+      "objectRole": "window",
+      "catalogItemId": "4821ab19-b99f-4434-9db3-6ff0f15367f7",
+      "selectedColorHex": "#FFFFFF",
+      "selectedColorName": "Trắng",
+      "selectedMaterialName": "Gỗ",
+      "variantPriceCents": 1000000
+    }
+  ]
+}

@@ -1,0 +1,325 @@
+{
+  "room": {
+    "key": "-3:2.5",
+    "name": "Phòng khách, Ăn + Bếp + KHông gian chung",
+    "polygons": [
+      [
+        -2.0019108465826676,
+        -0.8
+      ],
+      [
+        -2,
+        1.5
+      ],
+      [
+        -0.2,
+        1.5
+      ],
+      [
+        3.5,
+        1.5
+      ],
+      [
+        3.5,
+        5
+      ],
+      [
+        -7.998060083743152,
+        5
+      ],
+      [
+        -8,
+        -0.8
+      ],
+      [
+        -6.5,
+        -0.8
+      ]
+    ],
+    "materialId": "classic",
+    "description": "Mô tả chung hoặc chi tiết của căn phòng",
+    "materialLabel": "Cổ điển"
+  },
+  "walls": [
+    {
+      "id": "wall-1778228002800-gibf8bxr6",
+      "color": "#cccccc",
+      "height": 3,
+      "endPoint": [
+        -8,
+        -0.8
+      ],
+      "thickness": 0.12,
+      "startPoint": [
+        -6.5,
+        -0.8
+      ]
+    },
+    {
+      "id": "wall-1778228012015-ibsrzjvg8",
+      "color": "#cccccc",
+      "height": 3,
+      "endPoint": [
+        -7.998060083743152,
+        5
+      ],
+      "thickness": 0.12,
+      "startPoint": [
+        -7.998060083743152,
+        -0.8
+      ]
+    },
+    {
+      "id": "wall-1778228099545-6c9s00rvd",
+      "color": "#cccccc",
+      "height": 3,
+      "endPoint": [
+        -2,
+        1.5
+      ],
+      "thickness": 0.12,
+      "startPoint": [
+        -0.2,
+        1.5
+      ]
+    },
+    {
+      "id": "wall-1778228103351-kie618b1y",
+      "color": "#cccccc",
+      "height": 3,
+      "endPoint": [
+        -2.0019108465826676,
+        -0.8
+      ],
+      "thickness": 0.12,
+      "startPoint": [
+        -2.0019108465826676,
+        1.5
+      ]
+    },
+    {
+      "id": "wall-1778228175365-844pnbq7x",
+      "color": "#cccccc",
+      "height": 3,
+      "endPoint": [
+        -2.0019108465826676,
+        -0.8
+      ],
+      "thickness": 0.12,
+      "startPoint": [
+        -6.5,
+        -0.8
+      ]
+    },
+    {
+      "id": "wall-1778228499657-x8io4hs3d",
+      "color": "#cccccc",
+      "height": 3,
+      "endPoint": [
+        3.5,
+        1.5
+      ],
+      "thickness": 0.12,
+      "startPoint": [
+        3.5,
+        5
+      ]
+    },
+    {
+      "id": "wall-1778228501873-zj3dery09",
+      "color": "#cccccc",
+      "height": 3,
+      "endPoint": [
+        -0.2,
+        1.5
+      ],
+      "thickness": 0.12,
+      "startPoint": [
+        3.5,
+        1.5
+      ]
+    },
+    {
+      "id": "wall-1778228515161-nwb59k9sl",
+      "color": "#cccccc",
+      "height": 3,
+      "endPoint": [
+        3.5,
+        5
+      ],
+      "thickness": 0.12,
+      "startPoint": [
+        -7.998060083743152,
+        5
+      ]
+    }
+  ],
+  "openings": [
+    {
+      "id": "3de9d809-44e1-4ed1-a753-92ca9f4b1152",
+      "name": "Cửa (XHome)",
+      "size": [
+        0.9,
+        2.1,
+        0.1
+      ],
+      "type": "model",
+      "color": "#4a90e2",
+      "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/door.glb",
+      "position": [
+        -7.978060083743152,
+        1.05,
+        -0.2194464896145466
+      ],
+      "rotation": [
+        0,
+        0.7071067811865475,
+        0,
+        0.7071067811865476
+      ],
+      "objectRole": "door",
+      "catalogItemId": "f815cab8-9cc8-45cb-b4b6-deba805b8622",
+      "placementType": "wall",
+      "snappedToWall": "wall-1778228012015-ibsrzjvg8"
+    },
+    {
+      "id": "c09b33ba-7d79-4e49-9e1e-ed873014d1d0",
+      "name": "Cửa (XHome)",
+      "size": [
+        0.9,
+        2.1,
+        0.1
+      ],
+      "type": "model",
+      "color": "#4a90e2",
+      "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/door.glb",
+      "position": [
+        -1.55,
+        1.05,
+        1.48
+      ],
+      "rotation": [
+        0,
+        1,
+        0,
+        6.123233995736766e-17
+      ],
+      "objectRole": "door",
+      "catalogItemId": "f815cab8-9cc8-45cb-b4b6-deba805b8622",
+      "placementType": "wall",
+      "snappedToWall": "wall-1778228099545-6c9s00rvd"
+    },
+    {
+      "id": "8fb3787c-0326-4d3e-9d5d-ee7f7ee54ea3",
+      "name": "Cửa (XHome)",
+      "size": [
+        0.9,
+        2.1,
+        0.1
+      ],
+      "type": "model",
+      "color": "#4a90e2",
+      "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/door.glb",
+      "position": [
+        0.5080293778571683,
+        1.05,
+        1.48
+      ],
+      "rotation": [
+        0,
+        1,
+        0,
+        6.123233995736766e-17
+      ],
+      "objectRole": "door",
+      "catalogItemId": "f815cab8-9cc8-45cb-b4b6-deba805b8622",
+      "placementType": "wall",
+      "snappedToWall": "wall-1778228501873-zj3dery09"
+    },
+    {
+      "id": "5d8120e8-d87e-43e3-b2ec-b070fedae189",
+      "name": "Cửa (XHome)",
+      "size": [
+        0.9,
+        2.1,
+        0.1
+      ],
+      "type": "model",
+      "color": "#4a90e2",
+      "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/door.glb",
+      "position": [
+        3.52,
+        1.05,
+        4.412636171538255
+      ],
+      "rotation": [
+        0,
+        0.7071067811865475,
+        0,
+        0.7071067811865476
+      ],
+      "objectRole": "door",
+      "catalogItemId": "f815cab8-9cc8-45cb-b4b6-deba805b8622",
+      "placementType": "wall",
+      "snappedToWall": "wall-1778228499657-x8io4hs3d"
+    },
+    {
+      "id": "48ae72c5-4fde-422d-aa13-66ae4f8e7f40",
+      "name": "Cửa (XHome)",
+      "size": [
+        0.9,
+        2.1,
+        0.1
+      ],
+      "type": "model",
+      "color": "#4a90e2",
+      "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/door.glb",
+      "position": [
+        -5.291311159631861,
+        1.05,
+        -0.8200000000000001
+      ],
+      "rotation": [
+        0,
+        1,
+        0,
+        6.123233995736766e-17
+      ],
+      "objectRole": "door",
+      "catalogItemId": "f815cab8-9cc8-45cb-b4b6-deba805b8622",
+      "placementType": "wall",
+      "snappedToWall": "wall-1778228175365-844pnbq7x"
+    },
+    {
+      "id": "obj-1778660785641-322y66gno",
+      "name": "Cửa sổ trượt 2",
+      "type": "model",
+      "position": [
+        -5.421394910661256,
+        1.8824105,
+        4.9508755
+      ],
+      "rotation": [
+        0,
+        1,
+        0,
+        6.123233995736766e-17
+      ],
+      "color": "#4a90e2",
+      "size": [
+        0.961349,
+        1.964821,
+        0.041751
+      ],
+      "modelUrl": "https://storage.mazig.io/catalog/models/flora-master/SlideWindowLeaf05_018.glb",
+      "placementType": "wall",
+      "snappedToWall": "wall-1778228515161-nwb59k9sl",
+      "objectRole": "window",
+      "catalogItemId": "4821ab19-b99f-4434-9db3-6ff0f15367f7",
+      "selectedColorHex": "#FFFFFF",
+      "selectedColorName": "Trắng",
+      "selectedMaterialName": "Gỗ",
+      "variantPriceCents": 1000000
+    }
+  ]
+}

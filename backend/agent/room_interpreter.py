@@ -168,6 +168,11 @@ def _build_room_interpreter_payload(
 
     walls = _build_wall_graph(sanitized_polygon)
     openings_input = _resolve_floorplan_openings(input_payload)
+    explicit_doors = _opening_kind_explicitly_provided(input_payload, kind="doors")
+    explicit_windows = _opening_kind_explicitly_provided(
+        input_payload,
+        kind="windows",
+    )
     doors = _normalize_openings_for_kind(
         openings_input.get("doors"),
         walls=walls,
@@ -181,7 +186,7 @@ def _build_room_interpreter_payload(
         conflicts=conflicts,
     )
 
-    if sanitized_polygon and not doors:
+    if sanitized_polygon and not doors and not explicit_doors:
         default_door = _default_opening(walls, kind="door", existing_ids=set())
         if default_door is not None:
             doors.append(default_door)
@@ -189,7 +194,7 @@ def _build_room_interpreter_payload(
                 "No door was provided; generated a deterministic default entry on the longest wall."
             )
 
-    if sanitized_polygon and not windows:
+    if sanitized_polygon and not windows and not explicit_windows:
         default_window = _default_opening(
             walls,
             kind="window",
@@ -252,7 +257,7 @@ def _build_room_interpreter_payload(
         centroid=centroid,
     )
 
-    if not windows:
+    if not windows and not explicit_windows:
         missing.append("windows")
     if not usable_walls:
         conflicts.append(
@@ -1552,6 +1557,38 @@ def _resolve_floorplan_openings(
                 "windows": windows if isinstance(windows, list) else [],
             }
     return {"doors": [], "windows": []}
+
+
+def _opening_kind_explicitly_provided(
+    input_payload: Mapping[str, object],
+    *,
+    kind: Literal["doors", "windows"],
+) -> bool:
+    top_value = input_payload.get(kind)
+    if isinstance(top_value, list):
+        return True
+
+    for container_key in ("floorplan_geometry", "constraints"):
+        container = input_payload.get(container_key)
+        if not isinstance(container, Mapping):
+            continue
+        openings = container.get("openings")
+        if isinstance(openings, Mapping) and isinstance(openings.get(kind), list):
+            return True
+
+    if kind != "windows":
+        return False
+
+    user_input = input_payload.get("user_input")
+    if not isinstance(user_input, Mapping):
+        return False
+    raw_count = user_input.get("windows")
+    if isinstance(raw_count, bool):
+        return False
+    try:
+        return int(raw_count) <= 0
+    except (TypeError, ValueError):
+        return False
 
 
 def _resolve_room_polygon(input_payload: Mapping[str, object]) -> list[object] | None:

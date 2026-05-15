@@ -431,6 +431,17 @@ def _build_existing_objects(
         polygon = _normalize_polygon(row.get("polygon_ccw")) or bbox.to_polygon()
         cluster_id = row.get("cluster_id")
         cluster_id = cluster_id if isinstance(cluster_id, str) and cluster_id else None
+        place_on = (
+            deepcopy(row.get("place_on"))
+            if isinstance(row.get("place_on"), dict)
+            else None
+        )
+        collision_layer = row.get("collision_layer")
+        if not isinstance(collision_layer, str) or not collision_layer:
+            collision_layer = _existing_object_collision_layer(
+                object_type=object_type,
+                place_on=place_on,
+            )
 
         styled_objects.append(
             {
@@ -442,8 +453,8 @@ def _build_existing_objects(
                 "bbox": bbox.to_bbox(),
                 "color_hex": DEFAULT_OBJECT_COLOR,
                 "material": _fallback_material(object_type),
-                "place_on": None,
-                "collision_layer": "floor_solid",
+                "place_on": place_on,
+                "collision_layer": collision_layer,
             }
         )
         supports.append(
@@ -455,6 +466,31 @@ def _build_existing_objects(
             )
         )
     return styled_objects, supports
+
+
+def _existing_object_collision_layer(
+    *,
+    object_type: str,
+    place_on: dict[str, Any] | None,
+) -> str:
+    if isinstance(place_on, dict):
+        method = str(place_on.get("method") or "floor").strip().lower()
+        target_instance_id = str(place_on.get("target_instance_id") or "")
+        if method == "on_top":
+            return _collision_layer_for_object(
+                item_type=object_type,
+                method="on_top",
+                target_instance_id=target_instance_id,
+            )
+        if method in {"hang_on", "wall", "ceiling"}:
+            return _collision_layer_for_object(
+                item_type=object_type,
+                method="hang_on",
+                target_instance_id=target_instance_id or "ceiling",
+            )
+    if object_type.strip().lower() in UNDERLAY_TYPES:
+        return "floor_underlay"
+    return "floor_solid"
 
 
 def _build_generated_objects(
@@ -474,6 +510,7 @@ def _build_generated_objects(
     }
     counters: dict[str, int] = {}
     generated: list[dict[str, Any]] = []
+    existing_families = _object_families(existing_rows)
 
     room_center = (room_rect.center_x, room_rect.center_y)
 
@@ -485,6 +522,10 @@ def _build_generated_objects(
             anchor=support.object_type,
             room_type=room_type,
             candidates=candidates,
+        )
+        selected = _filter_already_present_item_families(
+            selected,
+            existing_families=existing_families,
         )
         generated.extend(
             _place_support_attached_items(
@@ -503,6 +544,10 @@ def _build_generated_objects(
         room_type=room_type,
         candidates=anchor_map.get("__opening__", []),
     )
+    opening_candidates = _filter_already_present_item_families(
+        opening_candidates,
+        existing_families=existing_families,
+    )
     if opening_candidates:
         generated.extend(
             _place_opening_items(
@@ -519,6 +564,10 @@ def _build_generated_objects(
         anchor="__wall__",
         room_type=room_type,
         candidates=anchor_map.get("__wall__", []),
+    )
+    wall_candidates = _filter_already_present_item_families(
+        wall_candidates,
+        existing_families=existing_families,
     )
     if wall_candidates:
         generated.extend(
@@ -537,6 +586,10 @@ def _build_generated_objects(
         room_type=room_type,
         candidates=anchor_map.get("__ceiling__", []),
     )
+    ceiling_candidates = _filter_already_present_item_families(
+        ceiling_candidates,
+        existing_families=existing_families,
+    )
     if ceiling_candidates:
         generated.extend(
             _place_ceiling_items(
@@ -553,6 +606,10 @@ def _build_generated_objects(
         anchor="__utility_zone__",
         room_type=room_type,
         candidates=anchor_map.get("__utility_zone__", []),
+    )
+    utility_candidates = _filter_already_present_item_families(
+        utility_candidates,
+        existing_families=existing_families,
     )
     if utility_candidates:
         generated.extend(
@@ -571,6 +628,44 @@ def _build_generated_objects(
         )
 
     return generated
+
+
+def _object_families(rows: list[dict[str, Any]]) -> set[str]:
+    return {
+        _object_family(str(row.get("object_type") or ""))
+        for row in rows
+        if isinstance(row, dict) and str(row.get("object_type") or "").strip()
+    }
+
+
+def _filter_already_present_item_families(
+    item_types: list[str],
+    *,
+    existing_families: set[str],
+) -> list[str]:
+    out: list[str] = []
+    for item_type in item_types:
+        family = _object_family(item_type)
+        if family in existing_families:
+            continue
+        existing_families.add(family)
+        out.append(item_type)
+    return out
+
+
+def _object_family(object_type: str) -> str:
+    normalized = object_type.strip().lower().replace("-", "_").replace(" ", "_")
+    if normalized in {"ceiling_lamp", "ceiling_light", "overhead_light"}:
+        return "ceiling_lamp"
+    if normalized in {"rug", "carpet"}:
+        return "rug"
+    if normalized in {"stove", "cooktop", "hob", "range"}:
+        return "cooking_appliance"
+    if normalized in {"range_hood", "hood", "extractor_hood", "vent_hood"}:
+        return "range_hood"
+    if normalized in {"kitchen_wall_cabinet", "wall_cabinet", "upper_cabinet"}:
+        return "kitchen_wall_cabinet"
+    return normalized
 
 
 def _select_anchor_candidates(
@@ -1200,6 +1295,13 @@ def _place_ceiling_items(
     center_y = int(round(anchor.rect.center_y if anchor else room_rect.center_y))
     rect = _centered_rect(
         center_x=center_x, center_y=center_y, width=width, height=height
+    )
+    rect = _fit_rect_within_bounds(
+        rect=rect,
+        min_x=room_rect.min_x + MOUNT_INSET_MM,
+        max_x=room_rect.max_x - MOUNT_INSET_MM,
+        min_y=room_rect.min_y + MOUNT_INSET_MM,
+        max_y=room_rect.max_y - MOUNT_INSET_MM,
     )
     return [
         _make_generated_object(

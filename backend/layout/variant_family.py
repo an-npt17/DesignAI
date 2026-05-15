@@ -132,6 +132,16 @@ ROLE_VARIANT_FAMILY_ALLOWLISTS = {
             "edge_weighted",
         }
     ),
+    "kitchen": frozenset(
+        {
+            "storage_wall",
+            "wall_storage",
+            "edge_storage",
+            "perimeter_storage",
+            "work_core",
+            "workflow",
+        }
+    ),
     "sleep": frozenset(SLEEP_VARIANT_FAMILIES),
 }
 

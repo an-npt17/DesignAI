@@ -8,12 +8,13 @@ from dataclasses import dataclass
 
 from agent.semantic_layout_planner import (
     SemanticLayoutPlanner,
+    _normalize_profile_semantic_program,
     semantic_program_to_cluster_forge_payload,
+    summarize_room_affordance,
 )
 from agent.request_contract import attach_request_contract_to_semantic_program
 from agent_schema.clusterF_schema import ClusterForgeOutput
 from clients.base_client import ChatMessage
-from clients.gemini_client import GeminiClient
 from clients.llm_client import get_llm_client
 
 try:
@@ -57,6 +58,21 @@ from stylist.style_policy import (
 
 logger = logging.getLogger(__name__)
 _FORGE_RESPONSE_MIME_TYPE = "application/json"
+
+
+def _record_llm_retry(*, stage: str, model_name: str | None, reason: str) -> None:
+    if getattr(TextLLMConfig, "PROVIDER", "") != "gemini":
+        return
+    try:
+        from clients.gemini_client import GeminiClient
+
+        GeminiClient.record_retry_event(
+            stage=stage,
+            model_name=model_name,
+            reason=reason,
+        )
+    except Exception:
+        logger.debug("Failed to record Gemini retry event.", exc_info=True)
 
 
 @dataclass(frozen=True)
@@ -185,6 +201,10 @@ class ClusterForge:
                 semantic_payload,
                 brief_text=brief_text,
             )
+            semantic_payload = _normalize_profile_semantic_program(
+                semantic_payload,
+                affordance_summary=summarize_room_affordance(room_model_json),
+            )
             payload = semantic_program_to_cluster_forge_payload(semantic_payload)
             payload["style_policy"] = style_policy
             payload = _normalize_cluster_forge_payload(payload)
@@ -227,7 +247,7 @@ class ClusterForge:
             except Exception:
                 if attempt == 1:
                     raise
-                GeminiClient.record_retry_event(
+                _record_llm_retry(
                     stage="cluster_forge",
                     model_name=model_name,
                     reason="invalid_json_or_schema",

@@ -33,6 +33,14 @@ def _safe_int(value: Any, *, default: int = 0) -> int:
         return default
 
 
+_HARD_REQUEST_CONTRACT_INTENTS = {"must_keep", "must_try"}
+_SOFT_REQUEST_CONTRACT_INTENTS = {
+    "target_if_viable",
+    "preferred_if_fit",
+    "optional_if_surplus",
+}
+
+
 # ============================================================
 # Size profile builder (S/M/L) with robust stats + backfill
 # ============================================================
@@ -862,6 +870,14 @@ def _estimate_decision_footprint_detail(
         "quantity": qty,
         "min_quantity": max(0, _safe_int(decision.get("min_keep"), default=0)),
         "priority": str(decision.get("priority", "secondary")),
+        "role": str(decision.get("role", "")),
+        "bundle_id": str(decision.get("bundle_id", "")),
+        "protected": bool(decision.get("protected", False)),
+        "droppable": bool(decision.get("droppable", False)),
+        "drop_order_bias": str(decision.get("drop_order_bias", "")),
+        "preserve_level": str(decision.get("preserve_level", "")),
+        "request_contract_intent": str(decision.get("request_contract_intent", "")),
+        "request_contract_evidence": str(decision.get("request_contract_evidence", "")),
         "needs_front_clearance": needs_access,
         "profile_source": profile_source,
         "clearance_depth_m": float(chosen["clearance_depth_m"]),
@@ -1160,6 +1176,30 @@ def _cluster_is_droppable(
         return False
 
     return False
+
+
+def _repair_priority(row: dict[str, Any], clusters_json: dict[str, Any] | None) -> str:
+    priority = _norm_key(str(row.get("priority", "secondary")))
+    intent = _norm_key(str(row.get("request_contract_intent", "")))
+
+    if intent in _HARD_REQUEST_CONTRACT_INTENTS:
+        return priority if priority in {"anchor", "primary"} else "primary"
+
+    if intent in _SOFT_REQUEST_CONTRACT_INTENTS:
+        if priority == "anchor" and _cluster_is_droppable(
+            str(row.get("cluster_id", "")),
+            clusters_json,
+        ):
+            return "primary"
+        return "primary" if priority in {"optional", "secondary"} else priority
+
+    if priority == "anchor" and _cluster_is_droppable(
+        str(row.get("cluster_id", "")),
+        clusters_json,
+    ):
+        return "optional"
+
+    return priority
 
 
 def _minimal_required_cluster_footprint_m2(
@@ -1482,7 +1522,7 @@ def _fit_decisions_to_budget(
             if cluster_id is not None and str(row["cluster_id"]) != cluster_id:
                 continue
 
-            pri = _norm_key(str(row.get("priority", "secondary")))
+            pri = _repair_priority(row, clusters_json)
             if pri not in priority_names:
                 continue
 
@@ -1531,7 +1571,7 @@ def _fit_decisions_to_budget(
             if cluster_id is not None and str(row["cluster_id"]) != cluster_id:
                 continue
 
-            pri = _norm_key(str(row.get("priority", "secondary")))
+            pri = _repair_priority(row, clusters_json)
             if pri not in priority_names:
                 continue
 
@@ -1700,16 +1740,15 @@ def _row_can_reduce_further(
     *,
     total_anchor_qty_in_cluster: int,
     cluster_is_droppable: bool,
+    clusters_json: dict[str, Any] | None,
 ) -> bool:
-    pri = _norm_key(str(row.get("priority", "secondary")))
+    pri = _repair_priority(row, clusters_json)
     qty = max(0, int(row.get("recommended_quantity", 0)))
     cur_tier = str(
         row.get("recommended_size_tier") or row.get("size_tier") or "S"
     ).upper()
     min_tier = _smallest_available_tier_in_row(row)
-    has_smaller_tier = (
-        cur_tier != min_tier and _next_smaller_tier(cur_tier) is not None
-    )
+    has_smaller_tier = cur_tier != min_tier and _next_smaller_tier(cur_tier) is not None
 
     if pri in {"optional", "secondary"}:
         return qty > max(0, _safe_int(row.get("min_quantity"), default=0))
@@ -1860,6 +1899,7 @@ def _summarize_post_fit_feasibility(
                 r,
                 total_anchor_qty_in_cluster=total_anchor_qty,
                 cluster_is_droppable=cluster_is_droppable,
+                clusters_json=clusters_json,
             )
             for r in rows
         )
@@ -2077,6 +2117,65 @@ def estimate_budget(
     )
 
     removed_clusters_after_fit = _remove_clusters_without_live_anchor(fitted_details)
+    if removed_clusters_after_fit:
+        keep_cluster_ids_for_refit = sorted(
+            set(cluster_ids) - set(removed_clusters_after_fit)
+        )
+        if keep_cluster_ids_for_refit:
+            refit_details = [
+                dict(row)
+                for row in decision_details
+                if str(row.get("cluster_id", "")) in keep_cluster_ids_for_refit
+            ]
+            removed_details = [
+                dict(row)
+                for row in fitted_details
+                if str(row.get("cluster_id", "")) in set(removed_clusters_after_fit)
+            ]
+            for row in removed_details:
+                row["recommended_quantity"] = 0
+                row["dropped_quantity"] = int(row.get("original_quantity", 0))
+                _recompute_recommended_row_totals(row)
+
+            keep_raw_cluster_footprints = _sum_footprint_by_cluster_m2(
+                refit_details,
+                field="effective_footprint_m2_total",
+            )
+            keep_min_required_limits = _minimal_required_cluster_footprint_m2(
+                refit_details,
+                clusters_json=clusters_json,
+            )
+            _, keep_cluster_ratios, keep_cluster_budget_limits = (
+                _derive_cluster_budget_limits(
+                    cluster_ids=keep_cluster_ids_for_refit,
+                    raw_cluster_footprints_m2=keep_raw_cluster_footprints,
+                    min_required_cluster_limits_m2=keep_min_required_limits,
+                    room_area_m2=room_area,
+                    base_ratio=base_ratio,
+                    shape_factor=shape_factor,
+                    cluster_area_mode=cluster_area_mode,
+                    room_model=room_model,
+                    adaptive_cluster_ratios=adaptive_cluster_ratios,
+                    cluster_ratio_overrides=cluster_ratio_overrides,
+                )
+            )
+            refitted_keep_details, _, _ = _fit_decisions_to_budget(
+                refit_details,
+                cluster_budget_limits_m2=keep_cluster_budget_limits,
+                global_budget_m2=global_budget_m2,
+                clusters_json=clusters_json,
+            )
+            fitted_details = refitted_keep_details + removed_details
+            for cid in keep_cluster_ids_for_refit:
+                cluster_ratios[cid] = keep_cluster_ratios.get(cid, 0.0)
+                cluster_budget_limits_m2[cid] = keep_cluster_budget_limits.get(
+                    cid,
+                    0.0,
+                )
+                min_required_cluster_limits_m2[cid] = keep_min_required_limits.get(
+                    cid,
+                    0.0,
+                )
 
     fitted_cluster_footprints = _sum_footprint_by_cluster_m2(
         fitted_details,

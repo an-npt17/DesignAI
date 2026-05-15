@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Layout Preview</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; background: #f6f4ef; color: #242424; }
+    header { display: flex; gap: 12px; align-items: center; padding: 12px 16px; border-bottom: 1px solid #ddd7ca; }
+    select { font-size: 14px; padding: 6px 8px; }
+    main { display: grid; grid-template-columns: 1fr 320px; min-height: calc(100vh - 57px); }
+    canvas { width: 100%; height: calc(100vh - 57px); background: #fffdf7; }
+    aside { border-left: 1px solid #ddd7ca; padding: 14px; overflow: auto; background: #fbfaf7; }
+    .row { display: grid; grid-template-columns: 18px 1fr; gap: 8px; align-items: center; margin: 8px 0; font-size: 13px; }
+    .swatch { width: 14px; height: 14px; border: 1px solid #999; }
+    .muted { color: #666; }
+  </style>
+</head>
+<body>
+  <script id="payload" type="application/json">{"objects": [{"name": "Giường ngủ", "size": [2.2735625, 0.9901748, 2.0629062], "type": "model", "color": "#795548", "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/bed.glb", "position": {"x": 2.9315, "y": 0.4950874, "z": 2.487}, "rotation": {"x": 0, "y": -1, "z": 0, "w": 0}, "objectRole": null, "catalogItemId": "9a92b108-99d8-4efa-874e-d950e77bfeca"}, {"name": "Bàn làm việc gỗ", "size": [1.200187, 0.78, 0.5], "type": "model", "color": "#000000", "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/desk.glb", "position": {"x": 3.2, "y": 0.39, "z": 0.25}, "rotation": {"x": 0, "y": 1, "z": 0, "w": 0}, "objectRole": null, "catalogItemId": "1d230753-c396-4ea3-a898-2e6819c4d8d3"}, {"name": "Tủ quần áo gỗ", "size": [0.600063, 2.399568, 1.6], "type": "model", "color": "#000000", "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/wardrobe.glb", "position": {"x": 3.2, "y": 1.199784, "z": 4}, "rotation": {"x": 0, "y": 0.707106781187, "z": 0, "w": -0.707106781187}, "objectRole": null, "catalogItemId": "d597f466-6922-4054-992e-96c32a6a410e"}, {"name": "Tủ cạnh giường", "size": [0.45, 0.496503, 0.45], "type": "model", "color": "#3679b3", "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/sidebed_table.glb", "position": {"x": 1.625, "y": 0.2482515, "z": 3.675}, "rotation": {"x": 0, "y": 0.707106781187, "z": 0, "w": -0.707106781187}, "objectRole": null, "catalogItemId": "088d63ee-5308-4431-927d-426ee45b2183"}, {"name": "Ghế tựa Rustic 2", "size": [0.511594, 0.849661, 0.495875], "type": "model", "color": "#000000", "modelUrl": "https://storage.mazig.io/catalog/models/rustic-khach/models/rustic-khach/Group2132577564.glb", "position": {"x": 1.356, "y": 0.4248305, "z": 2.648}, "rotation": {"x": 0, "y": 0, "z": 0, "w": -1}, "objectRole": null, "catalogItemId": "5b3b4c7a-38ed-4bc9-88b3-92855c4b5686"}], "openings": [{"id": "bedroom-door-01", "name": "Cửa phòng ngủ", "size": [0.9, 2.1, 0.1], "type": "model", "color": "#4a90e2", "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/door.glb", "position": [0.75, 1.05, -0.02], "rotation": [0, 1, 0, 6.123233995736766e-17], "objectRole": "door", "catalogItemId": "f815cab8-9cc8-45cb-b4b6-deba805b8622", "placementType": "wall", "snappedToWall": "bedroom-wall-bottom"}, {"id": "bedroom-window-01", "name": "Cửa sổ phòng ngủ", "type": "model", "position": [1.5, 1.55, 4.5], "rotation": [0, 0, 0, 1], "color": "#4a90e2", "size": [1.2, 1.2, 0.05], "modelUrl": "https://storage.mazig.io/catalog/models/flora-master/SlideWindowLeaf05_018.glb", "placementType": "wall", "snappedToWall": "bedroom-wall-top", "objectRole": "window", "catalogItemId": "4821ab19-b99f-4434-9db3-6ff0f15367f7", "selectedColorHex": "#FFFFFF", "selectedColorName": "Trắng", "selectedMaterialName": "Gỗ", "variantPriceCents": 1000000}], "selectedOptionId": "variant_1", "options": [{"optionId": "variant_1", "label": "Option 1", "layoutScore": -16157, "hardValid": false, "complete": true, "coverageRatio": 1, "objects": [{"name": "Giường ngủ", "size": [2.2735625, 0.9901748, 2.0629062], "type": "model", "color": "#795548", "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/bed.glb", "position": {"x": 2.9315, "y": 0.4950874, "z": 2.487}, "rotation": {"x": 0, "y": -1, "z": 0, "w": 0}, "objectRole": null, "catalogItemId": "9a92b108-99d8-4efa-874e-d950e77bfeca"}, {"name": "Bàn làm việc gỗ", "size": [1.200187, 0.78, 0.5], "type": "model", "color": "#000000", "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/desk.glb", "position": {"x": 3.2, "y": 0.39, "z": 0.25}, "rotation": {"x": 0, "y": 1, "z": 0, "w": 0}, "objectRole": null, "catalogItemId": "1d230753-c396-4ea3-a898-2e6819c4d8d3"}, {"name": "Tủ quần áo gỗ", "size": [0.600063, 2.399568, 1.6], "type": "model", "color": "#000000", "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/wardrobe.glb", "position": {"x": 3.2, "y": 1.199784, "z": 4}, "rotation": {"x": 0, "y": 0.707106781187, "z": 0, "w": -0.707106781187}, "objectRole": null, "catalogItemId": "d597f466-6922-4054-992e-96c32a6a410e"}, {"name": "Tủ cạnh giường", "size": [0.45, 0.496503, 0.45], "type": "model", "color": "#3679b3", "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/sidebed_table.glb", "position": {"x": 1.625, "y": 0.2482515, "z": 3.675}, "rotation": {"x": 0, "y": 0.707106781187, "z": 0, "w": -0.707106781187}, "objectRole": null, "catalogItemId": "088d63ee-5308-4431-927d-426ee45b2183"}, {"name": "Ghế tựa Rustic 2", "size": [0.511594, 0.849661, 0.495875], "type": "model", "color": "#000000", "modelUrl": "https://storage.mazig.io/catalog/models/rustic-khach/models/rustic-khach/Group2132577564.glb", "position": {"x": 1.356, "y": 0.4248305, "z": 2.648}, "rotation": {"x": 0, "y": 0, "z": 0, "w": -1}, "objectRole": null, "catalogItemId": "5b3b4c7a-38ed-4bc9-88b3-92855c4b5686"}], "openings": [{"id": "bedroom-door-01", "name": "Cửa phòng ngủ", "size": [0.9, 2.1, 0.1], "type": "model", "color": "#4a90e2", "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/door.glb", "position": [0.75, 1.05, -0.02], "rotation": [0, 1, 0, 6.123233995736766e-17], "objectRole": "door", "catalogItemId": "f815cab8-9cc8-45cb-b4b6-deba805b8622", "placementType": "wall", "snappedToWall": "bedroom-wall-bottom"}, {"id": "bedroom-window-01", "name": "Cửa sổ phòng ngủ", "type": "model", "position": [1.5, 1.55, 4.5], "rotation": [0, 0, 0, 1], "color": "#4a90e2", "size": [1.2, 1.2, 0.05], "modelUrl": "https://storage.mazig.io/catalog/models/flora-master/SlideWindowLeaf05_018.glb", "placementType": "wall", "snappedToWall": "bedroom-wall-top", "objectRole": "window", "catalogItemId": "4821ab19-b99f-4434-9db3-6ff0f15367f7", "selectedColorHex": "#FFFFFF", "selectedColorName": "Trắng", "selectedMaterialName": "Gỗ", "variantPriceCents": 1000000}]}, {"optionId": "variant_2", "label": "Option 2", "layoutScore": -16918, "hardValid": false, "complete": true, "coverageRatio": 1, "objects": [{"name": "Giường ngủ", "size": [2.2735625, 0.9901748, 2.0629062], "type": "model", "color": "#795548", "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/bed.glb", "position": {"x": 2.9315, "y": 0.4950874, "z": 2.487}, "rotation": {"x": 0, "y": -1, "z": 0, "w": 0}, "objectRole": null, "catalogItemId": "9a92b108-99d8-4efa-874e-d950e77bfeca"}, {"name": "Bàn làm việc gỗ", "size": [1.200187, 0.78, 0.5], "type": "model", "color": "#000000", "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/desk.glb", "position": {"x": 3.2, "y": 0.39, "z": 0.35}, "rotation": {"x": 0, "y": 1, "z": 0, "w": 0}, "objectRole": null, "catalogItemId": "1d230753-c396-4ea3-a898-2e6819c4d8d3"}, {"name": "Tủ quần áo gỗ", "size": [0.600063, 2.399568, 1.6], "type": "model", "color": "#000000", "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/wardrobe.glb", "position": {"x": 3.2, "y": 1.199784, "z": 4.2}, "rotation": {"x": 0, "y": 0.707106781187, "z": 0, "w": -0.707106781187}, "objectRole": null, "catalogItemId": "d597f466-6922-4054-992e-96c32a6a410e"}, {"name": "Tủ cạnh giường", "size": [0.45, 0.496503, 0.45], "type": "model", "color": "#3679b3", "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/sidebed_table.glb", "position": {"x": 1.575, "y": 0.2482515, "z": 3.725}, "rotation": {"x": 0, "y": 0.707106781187, "z": 0, "w": -0.707106781187}, "objectRole": null, "catalogItemId": "088d63ee-5308-4431-927d-426ee45b2183"}, {"name": "Ghế tựa Rustic 2", "size": [0.511594, 0.849661, 0.495875], "type": "model", "color": "#000000", "modelUrl": "https://storage.mazig.io/catalog/models/rustic-khach/models/rustic-khach/Group2132577564.glb", "position": {"x": 1.348, "y": 0.4248305, "z": 2.606}, "rotation": {"x": 0, "y": -0.707106781187, "z": 0, "w": -0.707106781187}, "objectRole": null, "catalogItemId": "5b3b4c7a-38ed-4bc9-88b3-92855c4b5686"}], "openings": [{"id": "bedroom-door-01", "name": "Cửa phòng ngủ", "size": [0.9, 2.1, 0.1], "type": "model", "color": "#4a90e2", "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/door.glb", "position": [0.75, 1.05, -0.02], "rotation": [0, 1, 0, 6.123233995736766e-17], "objectRole": "door", "catalogItemId": "f815cab8-9cc8-45cb-b4b6-deba805b8622", "placementType": "wall", "snappedToWall": "bedroom-wall-bottom"}, {"id": "bedroom-window-01", "name": "Cửa sổ phòng ngủ", "type": "model", "position": [1.5, 1.55, 4.5], "rotation": [0, 0, 0, 1], "color": "#4a90e2", "size": [1.2, 1.2, 0.05], "modelUrl": "https://storage.mazig.io/catalog/models/flora-master/SlideWindowLeaf05_018.glb", "placementType": "wall", "snappedToWall": "bedroom-wall-top", "objectRole": "window", "catalogItemId": "4821ab19-b99f-4434-9db3-6ff0f15367f7", "selectedColorHex": "#FFFFFF", "selectedColorName": "Trắng", "selectedMaterialName": "Gỗ", "variantPriceCents": 1000000}]}, {"optionId": "variant_3", "label": "Option 3", "layoutScore": -17447, "hardValid": false, "complete": true, "coverageRatio": 1, "objects": [{"name": "Giường ngủ", "size": [2.2735625, 0.9901748, 2.0629062], "type": "model", "color": "#795548", "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/bed.glb", "position": {"x": 2.9315, "y": 0.4950874, "z": 2.487}, "rotation": {"x": 0, "y": -1, "z": 0, "w": 0}, "objectRole": null, "catalogItemId": "9a92b108-99d8-4efa-874e-d950e77bfeca"}, {"name": "Bàn làm việc gỗ", "size": [1.200187, 0.78, 0.5], "type": "model", "color": "#000000", "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/desk.glb", "position": {"x": 3.2, "y": 0.39, "z": 0.35}, "rotation": {"x": 0, "y": 1, "z": 0, "w": 0}, "objectRole": null, "catalogItemId": "1d230753-c396-4ea3-a898-2e6819c4d8d3"}, {"name": "Tủ quần áo gỗ", "size": [0.600063, 2.399568, 1.6], "type": "model", "color": "#000000", "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/wardrobe.glb", "position": {"x": 3.2, "y": 1.199784, "z": 4}, "rotation": {"x": 0, "y": 0.707106781187, "z": 0, "w": -0.707106781187}, "objectRole": null, "catalogItemId": "d597f466-6922-4054-992e-96c32a6a410e"}, {"name": "Tủ cạnh giường", "size": [0.45, 0.496503, 0.45], "type": "model", "color": "#3679b3", "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/sidebed_table.glb", "position": {"x": 1.575, "y": 0.2482515, "z": 3.725}, "rotation": {"x": 0, "y": 0.707106781187, "z": 0, "w": -0.707106781187}, "objectRole": null, "catalogItemId": "088d63ee-5308-4431-927d-426ee45b2183"}, {"name": "Ghế tựa Rustic 2", "size": [0.511594, 0.849661, 0.495875], "type": "model", "color": "#000000", "modelUrl": "https://storage.mazig.io/catalog/models/rustic-khach/models/rustic-khach/Group2132577564.glb", "position": {"x": 1.356, "y": 0.4248305, "z": 2.648}, "rotation": {"x": 0, "y": 1, "z": 0, "w": 0}, "objectRole": null, "catalogItemId": "5b3b4c7a-38ed-4bc9-88b3-92855c4b5686"}], "openings": [{"id": "bedroom-door-01", "name": "Cửa phòng ngủ", "size": [0.9, 2.1, 0.1], "type": "model", "color": "#4a90e2", "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/door.glb", "position": [0.75, 1.05, -0.02], "rotation": [0, 1, 0, 6.123233995736766e-17], "objectRole": "door", "catalogItemId": "f815cab8-9cc8-45cb-b4b6-deba805b8622", "placementType": "wall", "snappedToWall": "bedroom-wall-bottom"}, {"id": "bedroom-window-01", "name": "Cửa sổ phòng ngủ", "type": "model", "position": [1.5, 1.55, 4.5], "rotation": [0, 0, 0, 1], "color": "#4a90e2", "size": [1.2, 1.2, 0.05], "modelUrl": "https://storage.mazig.io/catalog/models/flora-master/SlideWindowLeaf05_018.glb", "placementType": "wall", "snappedToWall": "bedroom-wall-top", "objectRole": "window", "catalogItemId": "4821ab19-b99f-4434-9db3-6ff0f15367f7", "selectedColorHex": "#FFFFFF", "selectedColorName": "Trắng", "selectedMaterialName": "Gỗ", "variantPriceCents": 1000000}]}, {"optionId": "variant_4", "label": "Option 4", "layoutScore": -17848, "hardValid": false, "complete": true, "coverageRatio": 1, "objects": [{"name": "Giường ngủ", "size": [2.2735625, 0.9901748, 2.0629062], "type": "model", "color": "#795548", "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/bed.glb", "position": {"x": 2.9315, "y": 0.4950874, "z": 2.487}, "rotation": {"x": 0, "y": -1, "z": 0, "w": 0}, "objectRole": null, "catalogItemId": "9a92b108-99d8-4efa-874e-d950e77bfeca"}, {"name": "Bàn làm việc gỗ", "size": [1.200187, 0.78, 0.5], "type": "model", "color": "#000000", "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/desk.glb", "position": {"x": 3.2, "y": 0.39, "z": 0.25}, "rotation": {"x": 0, "y": 1, "z": 0, "w": 0}, "objectRole": null, "catalogItemId": "1d230753-c396-4ea3-a898-2e6819c4d8d3"}, {"name": "Tủ quần áo gỗ", "size": [0.600063, 2.399568, 1.6], "type": "model", "color": "#000000", "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/wardrobe.glb", "position": {"x": 3.2, "y": 1.199784, "z": 4}, "rotation": {"x": 0, "y": 0.707106781187, "z": 0, "w": -0.707106781187}, "objectRole": null, "catalogItemId": "d597f466-6922-4054-992e-96c32a6a410e"}, {"name": "Tủ cạnh giường", "size": [0.45, 0.496503, 0.45], "type": "model", "color": "#3679b3", "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/sidebed_table.glb", "position": {"x": 1.575, "y": 0.2482515, "z": 3.725}, "rotation": {"x": 0, "y": 0.707106781187, "z": 0, "w": -0.707106781187}, "objectRole": null, "catalogItemId": "088d63ee-5308-4431-927d-426ee45b2183"}, {"name": "Ghế tựa Rustic 2", "size": [0.511594, 0.849661, 0.495875], "type": "model", "color": "#000000", "modelUrl": "https://storage.mazig.io/catalog/models/rustic-khach/models/rustic-khach/Group2132577564.glb", "position": {"x": 1.348, "y": 0.4248305, "z": 2.606}, "rotation": {"x": 0, "y": 0.707106781187, "z": 0, "w": -0.707106781187}, "objectRole": null, "catalogItemId": "5b3b4c7a-38ed-4bc9-88b3-92855c4b5686"}], "openings": [{"id": "bedroom-door-01", "name": "Cửa phòng ngủ", "size": [0.9, 2.1, 0.1], "type": "model", "color": "#4a90e2", "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/door.glb", "position": [0.75, 1.05, -0.02], "rotation": [0, 1, 0, 6.123233995736766e-17], "objectRole": "door", "catalogItemId": "f815cab8-9cc8-45cb-b4b6-deba805b8622", "placementType": "wall", "snappedToWall": "bedroom-wall-bottom"}, {"id": "bedroom-window-01", "name": "Cửa sổ phòng ngủ", "type": "model", "position": [1.5, 1.55, 4.5], "rotation": [0, 0, 0, 1], "color": "#4a90e2", "size": [1.2, 1.2, 0.05], "modelUrl": "https://storage.mazig.io/catalog/models/flora-master/SlideWindowLeaf05_018.glb", "placementType": "wall", "snappedToWall": "bedroom-wall-top", "objectRole": "window", "catalogItemId": "4821ab19-b99f-4434-9db3-6ff0f15367f7", "selectedColorHex": "#FFFFFF", "selectedColorName": "Trắng", "selectedMaterialName": "Gỗ", "variantPriceCents": 1000000}]}, {"optionId": "variant_5", "label": "Option 5", "layoutScore": -16517, "hardValid": false, "complete": true, "coverageRatio": 1, "objects": [{"name": "Giường ngủ", "size": [2.2735625, 0.9901748, 2.0629062], "type": "model", "color": "#795548", "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/bed.glb", "position": {"x": 2.9315, "y": 0.4950874, "z": 2.487}, "rotation": {"x": 0, "y": -1, "z": 0, "w": 0}, "objectRole": null, "catalogItemId": "9a92b108-99d8-4efa-874e-d950e77bfeca"}, {"name": "Bàn làm việc gỗ", "size": [1.200187, 0.78, 0.5], "type": "model", "color": "#000000", "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/desk.glb", "position": {"x": 3.2, "y": 0.39, "z": 0.25}, "rotation": {"x": 0, "y": 1, "z": 0, "w": 0}, "objectRole": null, "catalogItemId": "1d230753-c396-4ea3-a898-2e6819c4d8d3"}, {"name": "Tủ quần áo gỗ", "size": [0.600063, 2.399568, 1.6], "type": "model", "color": "#000000", "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/wardrobe.glb", "position": {"x": 3.2, "y": 1.199784, "z": 4.2}, "rotation": {"x": 0, "y": 0.707106781187, "z": 0, "w": -0.707106781187}, "objectRole": null, "catalogItemId": "d597f466-6922-4054-992e-96c32a6a410e"}, {"name": "Tủ cạnh giường", "size": [0.45, 0.496503, 0.45], "type": "model", "color": "#3679b3", "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/sidebed_table.glb", "position": {"x": 1.625, "y": 0.2482515, "z": 3.675}, "rotation": {"x": 0, "y": 0.707106781187, "z": 0, "w": -0.707106781187}, "objectRole": null, "catalogItemId": "088d63ee-5308-4431-927d-426ee45b2183"}, {"name": "Ghế tựa Rustic 2", "size": [0.511594, 0.849661, 0.495875], "type": "model", "color": "#000000", "modelUrl": "https://storage.mazig.io/catalog/models/rustic-khach/models/rustic-khach/Group2132577564.glb", "position": {"x": 1.356, "y": 0.4248305, "z": 2.648}, "rotation": {"x": 0, "y": 0, "z": 0, "w": -1}, "objectRole": null, "catalogItemId": "5b3b4c7a-38ed-4bc9-88b3-92855c4b5686"}], "openings": [{"id": "bedroom-door-01", "name": "Cửa phòng ngủ", "size": [0.9, 2.1, 0.1], "type": "model", "color": "#4a90e2", "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/door.glb", "position": [0.75, 1.05, -0.02], "rotation": [0, 1, 0, 6.123233995736766e-17], "objectRole": "door", "catalogItemId": "f815cab8-9cc8-45cb-b4b6-deba805b8622", "placementType": "wall", "snappedToWall": "bedroom-wall-bottom"}, {"id": "bedroom-window-01", "name": "Cửa sổ phòng ngủ", "type": "model", "position": [1.5, 1.55, 4.5], "rotation": [0, 0, 0, 1], "color": "#4a90e2", "size": [1.2, 1.2, 0.05], "modelUrl": "https://storage.mazig.io/catalog/models/flora-master/SlideWindowLeaf05_018.glb", "placementType": "wall", "snappedToWall": "bedroom-wall-top", "objectRole": "window", "catalogItemId": "4821ab19-b99f-4434-9db3-6ff0f15367f7", "selectedColorHex": "#FFFFFF", "selectedColorName": "Trắng", "selectedMaterialName": "Gỗ", "variantPriceCents": 1000000}]}], "selectionSummary": {"requested_count": 5, "candidate_count": 5, "returned_count": 5, "macro_distinct_candidate_count": 2, "macro_distinct_returned_count": 2, "visual_family_distinct_candidate_count": 4, "visual_family_distinct_returned_count": 4, "fallback_near_distinct_count": 4, "collapsed_macro_layouts": [], "collapsed_visual_families": [], "notes": ["Final gallery backfilled near-distinct options after exhausting strongly distinct visual families."]}, "_previewContext": {"room": {"key": "simple-bedroom-01-rest-study", "name": "Phòng ngủ nghỉ ngơi và học tập", "polygons": [[0, 0], [4, 0], [4, 4.5], [0, 4.5]], "materialId": "wood_light", "description": "Phòng ngủ 18 mét vuông, kích thước 4.0m x 4.5m, phong cách hiện đại và công năng. Không gian cần yên tĩnh, thực tế và dễ sử dụng cho ngủ nghỉ kết hợp học tập nhẹ. Bố trí 1 giường làm điểm nhấn chính, 1 tủ quần áo, 1 tủ đầu giường, 1 bàn học nhỏ với ghế, 1 đèn trần. Giữ khoảng trống thoáng quanh giường và bàn học để thuận tiện sử dụng hằng ngày. Cửa vào nằm trên tường dưới gần góc trái. Cửa sổ nằm trên tường trên, ưu tiên đặt bàn học gần cửa sổ nếu phù hợp.", "materialLabel": "Gỗ sáng"}, "walls": [{"id": "bedroom-wall-bottom", "color": "#cccccc", "height": 2.6, "endPoint": [4, 0], "thickness": 0.12, "startPoint": [0, 0]}, {"id": "bedroom-wall-right", "color": "#cccccc", "height": 2.6, "endPoint": [4, 4.5], "thickness": 0.12, "startPoint": [4, 0]}, {"id": "bedroom-wall-top", "color": "#cccccc", "height": 2.6, "endPoint": [0, 4.5], "thickness": 0.12, "startPoint": [4, 4.5]}, {"id": "bedroom-wall-left", "color": "#cccccc", "height": 2.6, "endPoint": [0, 0], "thickness": 0.12, "startPoint": [0, 4.5]}], "openings": [{"id": "bedroom-door-01", "name": "Cửa phòng ngủ", "size": [0.9, 2.1, 0.1], "type": "model", "color": "#4a90e2", "modelUrl": "https://storage.mazig.io/catalog/models/forest-ngu/door.glb", "position": [0.75, 1.05, -0.02], "rotation": [0, 1, 0, 6.123233995736766e-17], "objectRole": "door", "catalogItemId": "f815cab8-9cc8-45cb-b4b6-deba805b8622", "placementType": "wall", "snappedToWall": "bedroom-wall-bottom"}, {"id": "bedroom-window-01", "name": "Cửa sổ phòng ngủ", "type": "model", "position": [1.5, 1.55, 4.5], "rotation": [0, 0, 0, 1], "color": "#4a90e2", "size": [1.2, 1.2, 0.05], "modelUrl": "https://storage.mazig.io/catalog/models/flora-master/SlideWindowLeaf05_018.glb", "placementType": "wall", "snappedToWall": "bedroom-wall-top", "objectRole": "window", "catalogItemId": "4821ab19-b99f-4434-9db3-6ff0f15367f7", "selectedColorHex": "#FFFFFF", "selectedColorName": "Trắng", "selectedMaterialName": "Gỗ", "variantPriceCents": 1000000}]}}</script>
+  <header>
+    <strong>Layout Preview</strong>
+    <select id="option"></select>
+    <span id="meta" class="muted"></span>
+  </header>
+  <main>
+    <canvas id="canvas"></canvas>
+    <aside>
+      <strong>Objects</strong>
+      <div id="legend"></div>
+    </aside>
+  </main>
+  <script>
+    const payload = JSON.parse(document.getElementById("payload").textContent);
+    const previewContext = payload._previewContext || {};
+    const room = payload.room || previewContext.room || {};
+    const walls = payload.walls || previewContext.walls || [];
+    const options = payload.options?.length
+      ? payload.options
+      : [{ optionId: payload.selectedOptionId || "variant_1", label: "Option 1", objects: payload.objects || [], openings: payload.openings || [] }];
+    const select = document.getElementById("option");
+    const canvas = document.getElementById("canvas");
+    const ctx = canvas.getContext("2d");
+    const legend = document.getElementById("legend");
+    const meta = document.getElementById("meta");
+
+    options.forEach((option, index) => {
+      const item = document.createElement("option");
+      item.value = String(index);
+      item.textContent = `${option.label || option.optionId} (${option.objects?.length || 0} objects)`;
+      select.appendChild(item);
+    });
+    select.addEventListener("change", draw);
+    window.addEventListener("resize", draw);
+    draw();
+
+    function draw() {
+      const option = options[Number(select.value || 0)];
+      const objects = option.objects || [];
+      const openings = option.openings || [];
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = Math.floor(canvas.clientWidth * dpr);
+      canvas.height = Math.floor(canvas.clientHeight * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
+
+      const bounds = computeBounds(objects, openings, walls, room);
+      const pad = 50;
+      const sx = (canvas.clientWidth - pad * 2) / Math.max(1, bounds.maxX - bounds.minX);
+      const sz = (canvas.clientHeight - pad * 2) / Math.max(1, bounds.maxZ - bounds.minZ);
+      const scale = Math.min(sx, sz);
+      const toScreen = (x, z) => ({
+        x: pad + (x - bounds.minX) * scale,
+        y: canvas.clientHeight - pad - (z - bounds.minZ) * scale,
+      });
+
+      drawGrid(bounds, scale, toScreen);
+      drawRoom(room, toScreen);
+      drawWalls(walls, toScreen, scale);
+      openings.forEach((item) => drawOpening(item, toScreen, scale));
+      objects.forEach((item, index) => drawObject(item, index, toScreen, scale));
+      renderLegend(objects);
+      meta.textContent = `score=${option.layoutScore ?? "n/a"} hardValid=${option.hardValid ?? "n/a"}`;
+    }
+
+    function computeBounds(objects, openings, walls, room) {
+      const xs = [0], zs = [0];
+      const polygons = room.polygons || room.polygon || room.polygon_ccw || [];
+      for (const point of polygons) {
+        if (Array.isArray(point)) {
+          xs.push(Number(point[0] || 0));
+          zs.push(Number(point[1] || 0));
+        } else if (point && typeof point === "object") {
+          xs.push(Number(point.x || 0));
+          zs.push(Number(point.y ?? point.z ?? 0));
+        }
+      }
+      for (const wall of walls) {
+        const a = wall.startPoint || wall.start || wall.a;
+        const b = wall.endPoint || wall.end || wall.b;
+        for (const point of [a, b]) {
+          if (!Array.isArray(point)) continue;
+          xs.push(Number(point[0] || 0));
+          zs.push(Number(point[1] || 0));
+        }
+      }
+      for (const item of objects) {
+        const p = item.position || {};
+        const s = item.size || [0.5, 0.5, 0.5];
+        xs.push(Number(p.x || 0) - s[0] / 2, Number(p.x || 0) + s[0] / 2);
+        zs.push(Number(p.z || 0) - s[2] / 2, Number(p.z || 0) + s[2] / 2);
+      }
+      for (const item of openings) {
+        const p = item.position || [0, 0, 0];
+        xs.push(Number(p[0] || 0));
+        zs.push(Number(p[2] || 0));
+      }
+      return {
+        minX: Math.min(...xs) - 0.5,
+        maxX: Math.max(...xs) + 0.5,
+        minZ: Math.min(...zs) - 0.5,
+        maxZ: Math.max(...zs) + 0.5,
+      };
+    }
+
+    function drawRoom(room, toScreen) {
+      const polygons = room.polygons || room.polygon || room.polygon_ccw || [];
+      const points = polygons.map(point2).filter(Boolean);
+      if (points.length < 3) return;
+      ctx.save();
+      ctx.beginPath();
+      points.forEach((p, index) => {
+        const s = toScreen(p.x, p.z);
+        if (index === 0) ctx.moveTo(s.x, s.y);
+        else ctx.lineTo(s.x, s.y);
+      });
+      ctx.closePath();
+      ctx.fillStyle = "#fff9ec";
+      ctx.strokeStyle = "#d2c3a5";
+      ctx.lineWidth = 1;
+      ctx.fill();
+      ctx.stroke();
+      ctx.restore();
+    }
+
+    function drawWalls(walls, toScreen, scale) {
+      ctx.save();
+      ctx.lineCap = "round";
+      for (const wall of walls) {
+        const a = point2(wall.startPoint || wall.start || wall.a);
+        const b = point2(wall.endPoint || wall.end || wall.b);
+        if (!a || !b) continue;
+        const sa = toScreen(a.x, a.z);
+        const sb = toScreen(b.x, b.z);
+        ctx.strokeStyle = wall.color || "#555";
+        ctx.lineWidth = Math.max(4, Number(wall.thickness || 0.12) * scale);
+        line(sa.x, sa.y, sb.x, sb.y);
+      }
+      ctx.restore();
+    }
+
+    function drawGrid(bounds, scale, toScreen) {
+      ctx.strokeStyle = "#ece5d6";
+      ctx.lineWidth = 1;
+      for (let x = Math.floor(bounds.minX); x <= Math.ceil(bounds.maxX); x++) {
+        const a = toScreen(x, bounds.minZ);
+        const b = toScreen(x, bounds.maxZ);
+        line(a.x, a.y, b.x, b.y);
+      }
+      for (let z = Math.floor(bounds.minZ); z <= Math.ceil(bounds.maxZ); z++) {
+        const a = toScreen(bounds.minX, z);
+        const b = toScreen(bounds.maxX, z);
+        line(a.x, a.y, b.x, b.y);
+      }
+    }
+
+    function drawObject(item, index, toScreen, scale) {
+      const p = item.position || {};
+      const s = item.size || [0.5, 0.5, 0.5];
+      const c = toScreen(Number(p.x || 0), Number(p.z || 0));
+      const w = Math.max(6, s[0] * scale);
+      const h = Math.max(6, s[2] * scale);
+      const yaw = yawFromQuat(item.rotation || { x: 0, y: 0, z: 0, w: 1 });
+      ctx.save();
+      ctx.translate(c.x, c.y);
+      ctx.rotate(-yaw);
+      ctx.fillStyle = item.color || palette(index);
+      ctx.strokeStyle = "#252525";
+      ctx.lineWidth = 1.5;
+      ctx.fillRect(-w / 2, -h / 2, w, h);
+      ctx.strokeRect(-w / 2, -h / 2, w, h);
+      ctx.fillStyle = "#111";
+      ctx.font = "12px Arial";
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.fillText(String(index + 1), 0, 0);
+
+      const arrowLength = Math.max(18, Math.min(w, h) * 0.55);
+      ctx.strokeStyle = "#111";
+      ctx.fillStyle = "#111";
+      ctx.lineWidth = 2;
+      line(0, 0, 0, -arrowLength);
+      ctx.beginPath();
+      ctx.moveTo(0, -arrowLength - 7);
+      ctx.lineTo(-5, -arrowLength + 2);
+      ctx.lineTo(5, -arrowLength + 2);
+      ctx.closePath();
+      ctx.fill();
+      ctx.restore();
+    }
+
+    function drawOpening(item, toScreen, scale) {
+      const p = item.position || [0, 0, 0];
+      const s = item.size || [0.8, 2, 0.1];
+      const c = toScreen(Number(p[0] || 0), Number(p[2] || 0));
+      ctx.save();
+      ctx.translate(c.x, c.y);
+      ctx.fillStyle = item.objectRole === "window" ? "#75b7ff" : "#d79a55";
+      ctx.strokeStyle = "#333";
+      ctx.lineWidth = 2;
+      ctx.fillRect((-s[0] * scale) / 2, -4, Math.max(12, s[0] * scale), 8);
+      ctx.strokeRect((-s[0] * scale) / 2, -4, Math.max(12, s[0] * scale), 8);
+      ctx.fillStyle = "#111";
+      ctx.font = "11px Arial";
+      ctx.textAlign = "center";
+      ctx.textBaseline = "bottom";
+      ctx.fillText(item.objectRole || "opening", 0, -8);
+      ctx.restore();
+    }
+
+    function renderLegend(objects) {
+      legend.innerHTML = "";
+      const note = document.createElement("div");
+      note.className = "muted";
+      note.style.margin = "8px 0 12px";
+      note.textContent = "Mũi tên đen là hướng quay/front của đồ vật. Tường lấy từ test.json nếu result.json không có walls.";
+      legend.appendChild(note);
+      objects.forEach((item, index) => {
+        const row = document.createElement("div");
+        row.className = "row";
+        row.innerHTML = `<span class="swatch" style="background:${item.color || palette(index)}"></span><span>${index + 1}. ${escapeHtml(item.name || "object")}</span>`;
+        legend.appendChild(row);
+      });
+    }
+
+    function yawFromQuat(q) {
+      const x = Number(q.x || 0), y = Number(q.y || 0), z = Number(q.z || 0), w = Number(q.w ?? 1);
+      return Math.atan2(2 * (w * y + x * z), 1 - 2 * (y * y + z * z));
+    }
+    function line(x1, y1, x2, y2) {
+      ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke();
+    }
+    function point2(value) {
+      if (Array.isArray(value)) return { x: Number(value[0] || 0), z: Number(value[1] || 0) };
+      if (value && typeof value === "object") return { x: Number(value.x || 0), z: Number(value.y ?? value.z ?? 0) };
+      return null;
+    }
+    function palette(i) {
+      return ["#d8b98a", "#9fbf8f", "#94a7d6", "#d6988f", "#b894d6", "#88c2bd"][i % 6];
+    }
+    function escapeHtml(value) {
+      return String(value).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;", "'": "&#39;" }[c]));
+    }
+  </script>
+</body>
+</html>

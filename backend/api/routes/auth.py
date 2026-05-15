@@ -24,21 +24,29 @@ class AuthSessionResponse(BaseModel):
 
 
 class RegisterRequest(BaseModel):
-    email: str
-    password: str = Field(..., min_length=8)
-    display_name: str | None = Field(default=None, max_length=120)
+    email: str = Field(..., description="User's email address. Must be unique.")
+    password: str = Field(..., min_length=8, description="Minimum 8 characters.")
+    display_name: str | None = Field(default=None, max_length=120, description="Optional display name shown in the UI.")
 
 
 class LoginRequest(BaseModel):
-    email: str
-    password: str = Field(..., min_length=1)
+    email: str = Field(..., description="Registered email address.")
+    password: str = Field(..., min_length=1, description="Account password.")
 
 
-@router.post("/register", response_model=AuthSessionResponse)
+@router.post("/register", response_model=AuthSessionResponse, summary="Register a new account")
 def register(
     request: RegisterRequest,
     auth_service: AuthService = Depends(get_auth_service),
 ) -> AuthSessionResponse:
+    """
+    Create a new user account and return an access token.
+
+    Returns a bearer token that must be included in the `Authorization` header
+    (`Authorization: Bearer <token>`) for all protected endpoints.
+
+    Raises `400` if the email is already in use.
+    """
     try:
         session = auth_service.register_user(
             email=str(request.email),
@@ -50,11 +58,16 @@ def register(
     return _serialize_session(session)
 
 
-@router.post("/login", response_model=AuthSessionResponse)
+@router.post("/login", response_model=AuthSessionResponse, summary="Login and get an access token")
 def login(
     request: LoginRequest,
     auth_service: AuthService = Depends(get_auth_service),
 ) -> AuthSessionResponse:
+    """
+    Authenticate with email and password. Returns a bearer access token.
+
+    Raises `401` on invalid credentials.
+    """
     try:
         session = auth_service.login_user(
             email=str(request.email),
@@ -65,17 +78,23 @@ def login(
     return _serialize_session(session)
 
 
-@router.get("/me", response_model=AuthUserResponse)
+@router.get("/me", response_model=AuthUserResponse, summary="Get current authenticated user")
 def me(user: UserAccount = Depends(get_current_user)) -> AuthUserResponse:
+    """Return the profile of the currently logged-in user. Requires a valid bearer token."""
     return _serialize_user(user)
 
 
-@router.post("/logout")
+@router.post("/logout", summary="Logout and invalidate the current token")
 def logout(
     user: UserAccount = Depends(get_current_user),
     token: str | None = Depends(get_optional_access_token),
     auth_service: AuthService = Depends(get_auth_service),
 ) -> dict[str, bool]:
+    """
+    Invalidate the bearer token so it can no longer be used.
+
+    Returns `{"ok": true}` on success.
+    """
     del user
     if token is None:
         raise HTTPException(status_code=400, detail="Missing access token.")

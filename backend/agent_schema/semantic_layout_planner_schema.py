@@ -181,6 +181,9 @@ class SemanticLayoutProgram(BaseModel):
     room_type: str
     style_policy: dict[str, object] | None = None
     request_contract: dict[str, object] | None = None
+    profile_rule_trace: dict[str, object] | None = None
+    profile_layout_trace: dict[str, object] | None = None
+    profile_shadow_trace: dict[str, object] | None = None
     active_clusters: list[ActiveSemanticCluster] = Field(default_factory=list)
     global_layout_intent: GlobalLayoutIntent = Field(default_factory=GlobalLayoutIntent)
     macro_relations: MacroRelations = Field(default_factory=MacroRelations)

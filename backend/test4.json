@@ -1,0 +1,86 @@
+{
+  "room": {
+    "key": "simple-living-01-movie-social",
+    "name": "Phòng khách xem phim và giao lưu",
+    "polygons": [
+      [
+        0,
+        0
+      ],
+      [
+        4,
+        0
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        0,
+        5
+      ]
+    ],
+    "materialId": "wood_light",
+    "description": "Phòng khách 20 mét vuông, kích thước 4.0m x 5.0m, phong cách hiện đại và công năng. Thiết kế cho thư giãn, xem phim và giao lưu xã hội. Bố trí sofa thoải mái hướng về kệ TV hoặc màn hình lớn, bàn trà, thảm, ánh sáng đủ cho nhiều hoạt động, và 1-2 ghế bành nếu vừa. Giữ lối đi rõ ràng để di chuyển dễ dàng quanh khu vực ngồi.",
+    "materialLabel": "Gỗ sáng"
+  },
+  "walls": [
+    {
+      "id": "living-room-wall-bottom",
+      "color": "#cccccc",
+      "height": 2.7,
+      "endPoint": [
+        4,
+        0
+      ],
+      "thickness": 0.12,
+      "startPoint": [
+        0,
+        0
+      ]
+    },
+    {
+      "id": "living-room-wall-right",
+      "color": "#cccccc",
+      "height": 2.7,
+      "endPoint": [
+        4,
+        5
+      ],
+      "thickness": 0.12,
+      "startPoint": [
+        4,
+        0
+      ]
+    },
+    {
+      "id": "living-room-wall-top",
+      "color": "#cccccc",
+      "height": 2.7,
+      "endPoint": [
+        0,
+        5
+      ],
+      "thickness": 0.12,
+      "startPoint": [
+        4,
+        5
+      ]
+    },
+    {
+      "id": "living-room-wall-left",
+      "color": "#cccccc",
+      "height": 2.7,
+      "endPoint": [
+        0,
+        0
+      ],
+      "thickness": 0.12,
+      "startPoint": [
+        0,
+        5
+      ]
+    }
+  ],
+  "openings": []
+}
